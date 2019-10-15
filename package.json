@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "watch": "sass --watch src/sass:public/view/res",
+    "build": "sass src/sass:public/view/res"
+  },
+  "dependencies": {
+    "sass": "^1.23.0"
+  }
+}
