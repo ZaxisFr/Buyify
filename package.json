@@ -1,4 +1,7 @@
 {
+  "name": "Buyify",
+  "version": "1.0.0",
+  "description": "School project",
   "private": true,
   "scripts": {
     "watch": "sass --watch src/sass:public/view/res",
