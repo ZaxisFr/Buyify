@@ -1,22 +1,23 @@
 <?php
-require_once "../modem/DAO.class.php";
+require_once "../model/DAO.class.php";
 
 class Categorie
 {
-    private string $_nom;
-    private Categorie $_parent;
+    private $_nom;
+    private $_parent;
 
     /**
      * Categorie constructor.
-     * @param string $_nom
-     * @param Categorie $_parent
+     * @param string $nom
+     * @param Categorie|null $parent
+     * @throws Exception si la valeur de $nom est null
      */
     public function __construct(string $nom, Categorie $parent=null) {
         try{
             $this->setNom($nom);
             $this->setParent($parent);
         } catch (Exception $e){
-
+            throw $e;
         }
 
     }
@@ -30,6 +31,7 @@ class Categorie
 
     /**
      * @param string $nom
+     * @throws Exception si $nom est null
      */
     public function setNom(string $nom): void {
         if(is_null($nom)){
@@ -54,13 +56,14 @@ class Categorie
         $this->_parent = $parent;
     }
 
+    /**
+     * Renvoi la liste des id d'un objet contenus dans la catégorie
+     * @return array of object id
+     */
     public function getProduits() : array {
         $dao = new DAO();
         $produits = $dao->select("Produit","categorie = :categorie",['categorie'=> $this->getNom()],"id");
         return $produits;
     }
-
-
-
-
 }
+?>
