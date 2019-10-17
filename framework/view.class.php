@@ -12,6 +12,10 @@ class View {
     $this->param = array();
   }
 
+  function setTitle(string $title) {
+      $this->assign('_title', $title);
+  }
+
   // Ajoute une variable à la vue
   function assign(string $varName,$value) {
     $this->param[$varName] = $value;
@@ -21,7 +25,7 @@ class View {
   function display(string $filename) {
 
       // Ajoute le chemin relatif vers le fichier de la vue
-      $p = "../view/".$filename;
+      $this->assign("_view", "../view/".$filename);
 
     // Tous les attributs de l'objet sont dupliqués en des variables
     // locales à la fonction display. Cela simplifie l'expression des
@@ -33,10 +37,7 @@ class View {
       $$key = $value;
     }
 
-    // Inclusion de la vue
-    // Comme cette inclusion est dans la portée de la méthode show alors
-    // seules les variables locales à show sont visibles.
-    include($p);
+    require('../view/layout.view.php');
   }
 
   // Affiche toutes les valeurs des paramètres de la vue
