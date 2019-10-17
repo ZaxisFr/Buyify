@@ -8,15 +8,6 @@ class Utilisateur {
     private $nom;
     private $prenom;
     private $email;
-    private $mdp;
-
-    public function __construct(int $id, string $nom, string $prenom, string $email, string $mdp) {
-        $this->id = $id;
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->email = $email;
-        $this->mdp = $mdp;
-    }
 
     public static function getUtilisateurParId($id) : Utilisateur {
         $db = new DAO();
@@ -40,7 +31,8 @@ class Utilisateur {
     }
 
     public function getMdp(): string {
-        return $this->mdp;
+        $mdp = 'mot-de-passe';
+        return $this->$mdp; // Le nom de la colonne est mot-de-passe, qui ne peut pas être donné à une variable en PHP
     }
 
 
