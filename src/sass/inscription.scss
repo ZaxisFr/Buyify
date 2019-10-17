@@ -1,0 +1,15 @@
+@use 'common';
+
+#inscription-body {
+    p.bg-danger, p.bg-success {
+        padding: 1em;
+        margin-top: 0;
+    }
+
+    form {
+        input[type=submit] {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+}
