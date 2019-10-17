@@ -2,7 +2,7 @@
 
     class DAO {
         private $db;
-        private $database = 'sqlite:../data/buyify.db';
+        private $database = 'sqlite:../model/data/buyify.db';
 
         function __construct() {
             try {
@@ -31,5 +31,3 @@
             return $req->fetchAll();
         }
     }
-
-    ?>
