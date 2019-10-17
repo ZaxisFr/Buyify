@@ -4,11 +4,11 @@
     </header>
 
     <?php if (isset($erreur)): ?>
-        <p class="bg-danger"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
+        <p class="bg-danger banner"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
     <?php endif; ?>
 
     <?php if (isset($succes)): ?>
-        <p class="bg-success">Votre compte a été créé. <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
+        <p class="bg-success banner">Votre compte a été créé. <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
     <?php endif; ?>
 
     <form action="<?= $_SERVER['REQUEST_URI'] ?>" method="post">
