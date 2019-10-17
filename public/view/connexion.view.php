@@ -12,6 +12,7 @@
         <div class="row">
             <label class="<?= $classes ?>" for="email">Adresse mail :</label>
             <input class="<?= $classes ?>" type="email" name="email" id="email" required />
+        </div>
 
         <div class="row">
             <label class="<?= $classes ?>" for="mdp">Mot de passe :</label>

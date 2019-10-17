@@ -45,6 +45,10 @@ function verifierInscription(View $view, array $info) {
         return;
     }
 
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+        ajoutErreur($view, "L'adresse mail entrée est incorrecte.");
+    }
+
     if (!empty($db->select('Utilisateur', 'email=:email', ['email' => $email]))) {
         ajoutErreur($view, 'Cette adresse mail est déjà utilisée.');
         return;
@@ -82,7 +86,7 @@ $view = new View();
 if (isset($_POST['inscription'])) {
     verifierInscription($view, $_POST);
 }
-if (isset($_GET['success']) && $_GET['success'] === "true") {
+if (isset($_GET['success']) && filter_var($_GET['success'], FILTER_VALIDATE_BOOLEAN)) {
     $view->assign("succes", true);
 }
 $view->setTitle('Inscription');
