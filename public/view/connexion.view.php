@@ -1,8 +1,6 @@
 <div id="connexion-body" class="container_fluid">
     <header>
-        <div class="title">
-            <h1>Connexion</h1>
-        </div>
+        <h1>Connexion</h1>
         <?php require('_header.partial.php'); ?>
     </header>
 
