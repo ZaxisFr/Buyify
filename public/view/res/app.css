@@ -6,16 +6,48 @@ header {
   background-color: #090909;
   color: #F0F0F0;
   margin-bottom: 0;
-}
-header h1 {
   padding: 0.1em;
+  min-height: 3.2rem;
+}
+header div.title {
+  position: absolute;
+  left: 50%;
+}
+header div.title h1 {
+  position: relative;
+  left: -50%;
   text-align: center;
   margin-bottom: 0;
+  font-size: 2.8rem;
+}
+header .header-buttons {
+  text-align: right;
+  z-index: 1;
+}
+header .header-buttons .btn-secondary {
+  border: 1px solid #fefefe;
+  color: #fefefe;
+  background-color: transparent;
+}
+header .header-buttons .btn-secondary:hover {
+  border: 1px solid #d8d8d8;
+  color: #d8d8d8;
+  background-color: transparent;
 }
 
 .banner {
   padding: 1em;
   margin-top: 0;
+}
+
+.btn-primary {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-secondary {
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,6 +1,9 @@
 <div id="inscription-body" class="container_fluid">
     <header>
-        <h1>Inscription</h1>
+        <div class="title">
+            <h1>Inscription</h1>
+        </div>
+        <?php require('_header.partial.php'); ?>
     </header>
 
     <?php if (isset($erreur)): ?>
