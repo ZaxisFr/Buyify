@@ -1,6 +1,13 @@
 <?php
 
 require_once ('../model/DAO.class.php');
+require_once ('../model/Utilisateur.class.php');
+
+session_start();
+if (Utilisateur::isConnecte()) {
+    header('Location: connexion.ctrl.php');
+    exit(0);
+}
 
 function chaineValide(string $chaine) : bool {
     return isset($chaine) && strlen(trim($chaine)) > 0;
@@ -13,7 +20,16 @@ function ajoutErreur(View $view, string $message) {
 function verifierInscription(View $view, array $info) {
     $db = new DAO();
 
-    if (!chaineValide($nom = $info['nom'])) {
+    if (!isset($info['nom'])) {
+        ajoutErreur($view, 'Veuillez entrer votre nom complet.');
+        return;
+    }
+
+    $nomComplet = explode(' ', $info['nom']);
+    $nom = $nomComplet[0] ?? '';
+    $prenom = $nomComplet[1] ?? '';
+
+    if (!chaineValide($nom)) {
         ajoutErreur($view, 'Veuillez entrer votre nom.');
         return;
     }
@@ -23,7 +39,7 @@ function verifierInscription(View $view, array $info) {
         return;
     }
 
-    if (!chaineValide($prenom = $info['prenom'])) {
+    if (!chaineValide($prenom)) {
         ajoutErreur($view, 'Veuillez entrer votre prénom.');
         return;
     }

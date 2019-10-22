@@ -16,6 +16,7 @@ header .header-buttons .btn-secondary:hover {
 .banner {
   padding: 1em;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .btn-primary {
@@ -26,6 +27,10 @@ header .header-buttons .btn-secondary:hover {
 .btn-secondary {
   padding: 10px;
   border-radius: 5px;
+}
+
+#inscription-body article.card-body, #connexion-body article.card-body {
+  max-width: 400px;
 }
 
 /*# sourceMappingURL=app.css.map */
