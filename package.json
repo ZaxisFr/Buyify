@@ -4,10 +4,11 @@
   "description": "School project",
   "private": true,
   "scripts": {
-    "watch": "sass --watch src/sass:public/view/res",
-    "build": "sass src/sass:public/view/res"
+    "watch": "onchange 'src/sass/**/*.scss' -- npm run build",
+    "build": "sass src/sass/app.scss public/view/res/app.css"
   },
   "dependencies": {
+    "onchange": "^6.1.0",
     "sass": "^1.23.0"
   }
 }
