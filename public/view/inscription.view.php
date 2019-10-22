@@ -1,9 +1,4 @@
 <div id="inscription-body" class="container_fluid">
-    <header>
-        <h1>Inscription</h1>
-        <?php require('_header.partial.php'); ?>
-    </header>
-
     <?php if (isset($erreur)): ?>
         <p class="bg-danger banner"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
     <?php endif; ?>
