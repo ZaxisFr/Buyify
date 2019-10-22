@@ -13,8 +13,6 @@ function ajoutErreur(View $view, string $message) {
 function verifierInscription(View $view, array $info) {
     $db = new DAO();
 
-    var_dump($info);
-
     if (!chaineValide($nom = $info['nom'])) {
         ajoutErreur($view, 'Veuillez entrer votre nom.');
         return;
