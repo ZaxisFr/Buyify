@@ -18,7 +18,6 @@ function getCategories() : array {
 
 function verfierValeur(View $view, array $info){
     $db = new DAO();
-
     if(!chaineValide($nomCat = $info['cat_name'])){
         ajoutErreur($view,"Le nom de catégorie ne peut pas être vide");
         return;
@@ -48,7 +47,6 @@ function verfierValeur(View $view, array $info){
         'nom' => $nomCat,
         'parent' => $parent
     ]);
-
     header('Location: categorieCreation.ctrl.php?success=true');
     exit(0);
 }
@@ -63,6 +61,7 @@ if (isset($_POST['ajouterCat'])){
 if (isset($_GET['success'])) {
     $view->assign("succes", true);
 }
+
 
 $view->assign('cats',getCategories());
 $view->setTitle('Creation de categorie');

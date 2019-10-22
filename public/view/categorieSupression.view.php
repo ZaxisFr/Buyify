@@ -8,7 +8,7 @@
         <p class="bg-success banner">La catégorie a été suprimée <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
     <?php endif; ?>
 
-        <form action="" method="post" >
+        <form action="<?= $_SERVER['PHP_SELF']?>" method="post" >
             <label for="cat">Nom de la catégorie </label>
             <select id="cat" name="cat" required>
                  <?php foreach ($cats as $cat){

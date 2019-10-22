@@ -6,8 +6,8 @@
     <?php endif; ?>
     <?php if (isset($succes)): ?>
         <p class="bg-success banner">La catégorie a été ajoutée <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
-    <?php endif; ?>
-        <form action="" method="post" >
+    <?php endif;?>
+        <form action="<?= $_SERVER['PHP_SELF']?>" method="post" >
             <label for="cat_name">Nom de la catégorie </label>
             <input type="text" name="cat_name" id="cat_name" required> </br>
             <label for="cat_name">Catégorie parents</label>

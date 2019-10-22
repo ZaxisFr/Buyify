@@ -33,6 +33,8 @@ function suprimierCategorie(View $view, array $info) {
         return;
     }
 
+
+
     $db->run("DELETE FROM Categorie WHERE nom=:nom", ['nom' => $nomCat]);
     header('Location: categorieSupression.ctrl.php?success=true');
     exit(0);
