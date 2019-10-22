@@ -1,7 +1,7 @@
 <div class="header-buttons">
     <?php
-
-    if (isset($_SESSION['id'])):
+    require_once('../model/Utilisateur.class.php');
+    if (Utilisateur::isConnecte()):
     ?>
         <a href="deconnexion.ctrl.php"><button class="btn-primary">Déconnexion</button></a>
     <?php

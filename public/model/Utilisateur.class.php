@@ -35,6 +35,16 @@ class Utilisateur {
         return $this->$mdp; // Le nom de la colonne est mot-de-passe, qui ne peut pas être donné à une variable en PHP
     }
 
+    /**
+     * Vérifie si l'utilisateur est connecté : nécessite l'ouverture de session
+     * @return bool
+     */
+    public static function isConnecte() : bool {
+        return isset($_SESSION['id']);
+    }
 
+    public static function getUtilisateurConnecte() : Utilisateur {
+        return (self::isConnecte()) ? self::getUtilisateurParId($_SESSION['id']) : null;
+    }
 
 }
