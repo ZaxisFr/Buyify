@@ -40,7 +40,7 @@ class Categorie
      */
     public function getProduits() : array {
         $dao = new DAO();
-        $produits = $dao->selectAsClass("Categorie.class.php","Produit","categorie = :categorie",['categorie'=> $this->getNom()],"id");
+        $produits = $dao->selectAsClass("Categorie","Produit","categorie = :categorie",['categorie'=> $this->getNom()],"id");
         return $produits;
     }
 }
