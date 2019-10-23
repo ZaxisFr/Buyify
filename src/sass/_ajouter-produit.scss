@@ -1,6 +1,41 @@
-$couleur-font-formulaire : #000;
-$couleur-text-formulaire : #fff;
-.formulaire-ajout-produit{
-  background-color: $couleur-font-formulaire;
-  color: $couleur-font-formulaire;
+$gray-400 : #CED4DA;
+$gray-500 : #ADB5BD;
+
+.formulaireAjoutProduit{
+  .file-condition{
+    position: relative;
+    right : 0;
+    font-size: 0.7em;
+    color: $gray-500;
+  }
+  .ou{
+    color: $gray-500;
+    text-align: center;
+    position: relative;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    span{
+      display: inline-block;
+      position: relative;
+    }
+    span::after,
+    span::before{
+      content: "";
+      position: absolute;
+      height: 0px;
+      border-bottom: none;
+      border-top: 1px solid $gray-500;
+      top: 0.75em;
+      width: 200px;
+    }
+
+    span:before {
+      right: 100%;
+      margin-right: 15px;
+    }
+    span:after {
+      left: 100%;
+      margin-left: 15px;
+    }
+  }
 }

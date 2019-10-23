@@ -1,6 +1,41 @@
-.formulaire-ajout-produit {
-  background-color: #000;
-  color: #000;
+.formulaireAjoutProduit .file-condition {
+  position: relative;
+  right: 0;
+  font-size: 0.7em;
+  color: #ADB5BD;
+}
+.formulaireAjoutProduit .ou {
+  color: #ADB5BD;
+  text-align: center;
+  position: relative;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.formulaireAjoutProduit .ou span {
+  display: inline-block;
+  position: relative;
+}
+.formulaireAjoutProduit .ou span::after,
+.formulaireAjoutProduit .ou span::before {
+  content: "";
+  position: absolute;
+  height: 0px;
+  border-bottom: none;
+  border-top: 1px solid #ADB5BD;
+  top: 0.75em;
+  width: 200px;
+}
+.formulaireAjoutProduit .ou span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.formulaireAjoutProduit .ou span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+select {
+  -moz-appearance: none;
 }
 
 /*# sourceMappingURL=app.css.map */

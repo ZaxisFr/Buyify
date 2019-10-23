@@ -31,9 +31,9 @@ function verrifierAjoutProduit(View $view, array $info){
     return;
   }
   $image = $_FILES;
-  if(isset($info['imageURL'])){
+  if(strlen($info['imageURL'])){
       $imageUrl = $info['imageURL'];
-      if (ImageUpload::retrieveImage($imageUrl)) {
+      if (!ImageUpload::retrieveImage($imageUrl)) {
           return;
       }
   }else{
@@ -51,6 +51,8 @@ function verrifierAjoutProduit(View $view, array $info){
 
   $db = new Dao();
 
+  $idUtilisateur = Utilisateur::getUtilisateurConnecte()->getId();
+
   try {
       $db->run("INSERT INTO Produit ('intitule', 'description', 'prix', 'categorie', 'photo', 'vendu-par') VALUES (:intitule, :description, :prix, :categorie, :image, :venduPar)", [
           'intitule' => $intitule,
@@ -58,7 +60,7 @@ function verrifierAjoutProduit(View $view, array $info){
           'prix' => $prix,
           'categorie' => $categorie,
           'image' => $imageName,
-          'venduPar' => '1'
+          'venduPar' => $idUtilisateur
       ]);
   } catch (\Exception $e) {
   }
@@ -73,13 +75,16 @@ $view = new View();
 
 require_once('../model/ImageUpload.class.php');
 require_once('../model/DAO.class.php');
+require_once('../model/Utilisateur.class.php');
+
 
 $db = new Dao();
 
 $categories = $db->select('Categorie','1',[],'nom');
 
-
 $view->assign("categories", $categories);
+
+session_start();
 
 if (isset($_POST['ajout'])) {
     verrifierAjoutProduit($view, $_POST);
@@ -87,5 +92,5 @@ if (isset($_POST['ajout'])) {
 if (isset($_GET['success']) && filter_var($_GET['success'], FILTER_VALIDATE_BOOLEAN)) {
     $view->assign("succes", true);
 }
-$view->display('ajout-produit.view.php');
+$view->display('produitAjout.view.php');
  ?>
