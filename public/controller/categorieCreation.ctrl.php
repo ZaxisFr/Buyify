@@ -12,8 +12,8 @@ function chaineValide(string $chaine) : bool {
 
 function getCategories() : array {
     $db = new DAO();
-    $catgeorie =  $db->select('Categorie');
-    return $catgeorie;
+    $categorie =  $db->select('Categorie');
+    return $categorie;
 }
 
 function verfierValeur(View $view, array $info){

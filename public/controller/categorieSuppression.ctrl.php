@@ -12,8 +12,8 @@ function ajoutErreur(View $view, string $message) {
 
 function getCategories() : array {
     $db = new DAO();
-    $catgeorie =  $db->select('categorie');
-    return $catgeorie;
+    $categorie =  $db->select('categorie');
+    return $categorie;
 }
 
 function supprimerCategorie(View $view, array $info) {
