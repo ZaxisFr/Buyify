@@ -24,7 +24,7 @@ function verfierValeur(View $view, array $info){
     }
 
     if (strlen($nomCat) > 50){
-        ajoutErreur($view,"Le nom de catégorie ne doit pas depasser 50 caractères");
+        ajoutErreur($view,"Le nom de catégorie ne doit pas dépasser 50 caractères");
         return;
     }
 
@@ -34,7 +34,7 @@ function verfierValeur(View $view, array $info){
     }
 
     if (empty($db->select('Categorie', 'nom=:parent', ['parent' => $parent]))) {
-        ajoutErreur($view, "La catégorie parent $parent n'existe pas" );
+        ajoutErreur($view, "La catégorie parente $parent n'existe pas" );
         return;
     }
 
@@ -64,7 +64,7 @@ if (isset($_GET['success'])) {
 
 
 $view->assign('cats',getCategories());
-$view->setTitle('Creation de categorie');
+$view->setTitle('Création de catégorie');
 $view->display('categorieCreation.view.php');
 
 

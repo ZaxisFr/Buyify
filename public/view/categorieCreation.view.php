@@ -1,6 +1,6 @@
 
 <div id="categorieCreationBody" >
-        <h2>Ajouter une catégorire</h2>
+        <h2>Ajouter une catégorie</h2>
     <?php if (isset($erreur)): ?>
         <p class="bg-danger banner"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
     <?php endif; ?>
