@@ -3,22 +3,6 @@ body {
 }
 
 header {
-    .header-buttons {
-        .btn-secondary {
-            $headerButton2Color: #fefefe;
-            $headerButton2Bg: transparent;
-            border: 1px solid $headerButton2Color;
-            color: $headerButton2Color;
-            background-color: $headerButton2Bg;
-
-            &:hover {
-                $headerButton2Darken: 15;
-                border: 1px solid darken($headerButton2Color, $headerButton2Darken);
-                color: darken($headerButton2Color, $headerButton2Darken);
-                background-color: $headerButton2Bg;
-            }
-        }
-    }
 }
 
 .banner {
