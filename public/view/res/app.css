@@ -40,6 +40,7 @@ header .header-buttons .btn-secondary:hover {
 }
 #categorie-body .card {
   min-height: 400px;
+  margin: 3%;
 }
 #categorie-body .form-group {
   width: 100%;
