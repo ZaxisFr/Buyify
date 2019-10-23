@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Buyifi</title>
+    <link rel="stylesheet" href="../view/res/app.css">
   </head>
   <body>
   <?php if (isset($this->param['succes'])): ?>
