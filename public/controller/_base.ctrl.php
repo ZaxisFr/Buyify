@@ -7,3 +7,4 @@ function ajoutErreur(View $view, string $message) {
 function chaineValide(string $chaine) : bool {
     return isset($chaine) && strlen(trim($chaine)) > 0;
 }
+
