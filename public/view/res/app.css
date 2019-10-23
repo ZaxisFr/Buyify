@@ -29,8 +29,20 @@ header .header-buttons .btn-secondary:hover {
   border-radius: 5px;
 }
 
-#inscription-body article.card-body, #connexion-body article.card-body {
+#inscription-body article.card-body, #connexion-body article.card-body, #categorie-body article.card-body {
   max-width: 400px;
+}
+
+#categorie-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#categorie-body .card {
+  min-height: 400px;
+}
+#categorie-body .form-group {
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */
