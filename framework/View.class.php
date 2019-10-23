@@ -2,6 +2,7 @@
 
 // Classe minimaliste pour normaliser l'usage d'une vue
 // Cette classe est inspiré du moteur et compilateur de template Smarty
+
 class View {
   // Paramètres de la vue, dans un tableau associatif
   private $param;

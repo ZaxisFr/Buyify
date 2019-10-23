@@ -1,0 +1,14 @@
+<?php
+include_once("../model/DAO.class.php");
+
+if (key_exists("intitule",$_POST)
+    &&key_exists("description",$_POST)
+    &&key_exists("prix",$_POST)
+    &&key_exists("photo",$_POST)
+    &&key_exists("categorie",$_POST)){
+
+}else{
+    header("ajout-produit.ctrl.php?status=echec&message=");
+}
+
+?>
