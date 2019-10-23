@@ -1,5 +1,5 @@
 <?php if (isset($erreur)): ?>
-    <p class="bg-danger banner"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
+    <p class="bg-danger banner" xmlns="http://www.w3.org/1999/html"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
 <?php endif; ?>
 <?php if (isset($succes)): ?>
     <p class="bg-success banner">Operation effectuée <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
@@ -37,7 +37,7 @@
             <h5>Supprimer une catégorie</h5>
         </div>
         <div class="card-body mx-3">
-            <form action="<?= $_SERVER['PHP_SELF']?>" method="post" >
+            <form id="supp" action="<?= $_SERVER['PHP_SELF']?>" method="post" >
                 <div class="form-group">
                     <label for="cat">Nom de la catégorie </label>
                     <select id="cat" class="form-control" name="cat" required>
@@ -46,8 +46,32 @@
                 </div>
         </div>
         <div class="card-footer text-muted">
-            <input class="btn btn-primary btn-block" type="submit" value="Supprimer" name="supprimerCat" />
+            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+                Supprimer
+            </button>
         </div>
         </form>
     </div>
 </div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Confirmer la supression</h5>
+                   
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>ATTENTION !! </h5> </br> La supression est définitve vous ne pourez pas l'annulez
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button form="supp" class="btn btn-primary btn-block" type="submit" value="Supprimer" name="supprimerCat" /> Confimer </button>
+            </div>
+        </div>
+    </div>
+</div>
+
