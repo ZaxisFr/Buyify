@@ -13,7 +13,7 @@ function ajoutErreur(View $view, string $message) {
 }
 
 function verifierConnexion(View $view, array $infos) {
-    $email = $infos['email'] ?? '';
+    $email = $infos['mail'] ?? '';
     $mdp = $infos['mdp'] ?? '';
 
     $db = new DAO();
