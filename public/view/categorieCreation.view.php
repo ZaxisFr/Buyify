@@ -46,7 +46,7 @@
                 </div>
         </div>
         <div class="card-footer text-muted">
-            <input class="btn btn-primary btn-block" type="submit" value="Envoyer" name="supprimerCat" />
+            <input class="btn btn-primary btn-block" type="submit" value="Supprimer" name="supprimerCat" />
         </div>
         </form>
     </div>
