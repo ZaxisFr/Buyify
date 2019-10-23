@@ -92,5 +92,6 @@ if (isset($_POST['ajout'])) {
 if (isset($_GET['success']) && filter_var($_GET['success'], FILTER_VALIDATE_BOOLEAN)) {
     $view->assign("succes", true);
 }
+$view->setTitle('Ajouter Produit');
 $view->display('produitAjout.view.php');
  ?>
