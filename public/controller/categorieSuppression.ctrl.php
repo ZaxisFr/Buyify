@@ -12,14 +12,14 @@ function ajoutErreur(View $view, string $message) {
 
 function getCategories() : array {
     $db = new DAO();
-    $catgeorie =  $db->select('Categorie');
+    $catgeorie =  $db->select('categorie');
     return $catgeorie;
 }
 
-function suprimierCategorie(View $view, array $info) {
+function supprimerCategorie(View $view, array $info) {
     $db = new DAO();
 
-    if(!chaineValide($nomCat = $info['cat'])){
+    if(!chaineValide($nomCat = $info['cat'] ?? '')){
         ajoutErreur($view,"Le nom de catégorie ne peut pas être vide");
         return;
     }
@@ -29,22 +29,22 @@ function suprimierCategorie(View $view, array $info) {
     }
 
     if (empty($db->select('Categorie', 'nom=:nom', ['nom' => $nomCat]))) {
-        ajoutErreur($view, "La catégorie parent $nomCat n'existe pas" );
+        ajoutErreur($view, "La catégorie parente $nomCat n'existe pas" );
         return;
     }
 
 
 
     $db->run("DELETE FROM Categorie WHERE nom=:nom", ['nom' => $nomCat]);
-    header('Location: categorieSupression.ctrl.php?success=true');
+    header('Location: categorieSuppression.ctrl.php?success=true');
     exit(0);
 }
 
 require_once '../../framework/View.class.php';
 $view = new View();
 
-if(isset($_POST['suprimerCat'])){
-    suprimierCategorie($view,$_POST);
+if(isset($_POST['supprimerCat'])){
+    supprimerCategorie($view,$_POST);
 }
 
 if (isset($_GET['success'])) {
@@ -53,10 +53,5 @@ if (isset($_GET['success'])) {
 
 
 $view->assign('cats',getCategories());
-$view->setTitle('Supression de categorie');
+$view->setTitle('Suppression de catégorie');
 $view->display('categorieSupression.view.php');
-
-
-
-
-

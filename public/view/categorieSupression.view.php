@@ -1,11 +1,11 @@
 
-<div id="categorieSupression-body" >
-        <h2>Suprimer une catégorire</h2>
+<div id="categorieSuppressionBody" >
+        <h2>Supprimer une catégorie</h2>
     <?php if (isset($erreur)): ?>
         <p class="bg-danger banner"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
     <?php endif; ?>
     <?php if (isset($succes)): ?>
-        <p class="bg-success banner">La catégorie a été suprimée <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
+        <p class="bg-success banner">La catégorie a été supprimée <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
     <?php endif; ?>
 
         <form action="<?= $_SERVER['PHP_SELF']?>" method="post" >
@@ -16,6 +16,6 @@
                 }
                 ?>
             </select></br>
-            <input type="submit" value="Envoyer" name="suprimerCat" />
+            <input type="submit" value="Envoyer" name="supprimerCat" />
         </form>
 </div>

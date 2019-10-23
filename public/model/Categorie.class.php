@@ -7,14 +7,14 @@ class Categorie
     private $_parent;
 
     /**
-     * Categorie constructor.
+     * Categorie constructeur.
      * @param string $nom
      * @param Categorie|null $parent
      * @throws Exception si la valeur de $nom est null
      */
     public function __construct(string $nom, Categorie $parent=null) {
         if(is_null($nom)){
-            throw new Exception('Nom de catégoire vide');
+            throw new Exception('Nom de catégorie vide');
         } else {
             $this->_nom = $nom;
         }
@@ -40,7 +40,7 @@ class Categorie
      */
     public function getProduits() : array {
         $dao = new DAO();
-        $produits = $dao->select("Produit","categorie = :categorie",['categorie'=> $this->getNom()],"id");
+        $produits = $dao->selectAsClass("Categorie.class.php","Produit","categorie = :categorie",['categorie'=> $this->getNom()],"id");
         return $produits;
     }
 }
