@@ -65,7 +65,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h5>ATTENTION !! </h5> </br> La supression est définitve vous ne pourez pas l'annulez
+                <h5>ATTENTION !! </h5> </br> La suppression est définitve vous ne pourrez pas l'annulez
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
