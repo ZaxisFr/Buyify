@@ -1,19 +1,19 @@
 
-<div class="container_fluid formulaireAjoutProduit">
+<div class="container_fluid formulaire-ajout-produit">
   <?php if (isset($this->param['error'])): ?>
-        <p class="bg-danger banner"><?= $erreur ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
+        <p class="bg-danger banner"><?= $this->param['error'] ?> <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
   <?php endif; ?>
 
   <?php if (isset($this->param['succes'])): ?>
       <p class="bg-success banner">Votre annonce a été enregistrée. <button type="button" class="close" aria-label="close"><span aria-hidden="true">&times;</span></button></p>
   <?php endif; ?>
-  <article class="card-body mx-auto" style="max-width: 500px;">
+  <article class="card-body mx-auto">
     <form class="" action="<?= $_SERVER['REQUEST_URI'] ?>" method="post" enctype="multipart/form-data">
       <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <span class="fas fa-heading"></span> </span>
         </div>
-        <label for="intitule" class="d-none">intitule</label>
+        <label for="intitule" class="d-none">Intitulé</label>
         <input type="text" name="intitule" placeholder="Intitulé" class="form-control" value="">
       </div>
       <div class="form-group input-group">
@@ -69,8 +69,8 @@
         <div class="input-group-prepend">
             <span class="input-group-text"> <span class="fas fa-image"></span> </span>
         </div>
-        <label for="imageURL" class="d-none">images</label>
-        <input type="text" name="imageURL" class="form-control" value="" placeholder="Entrez URL">
+        <label for="image-url" class="d-none">image</label>
+        <input type="text" name="image-url" class="form-control" value="" placeholder="Entrez URL">
       </div>
       <button type="submit" class="btn btn-primary btn-block" name="ajout" value="valider">Valider</button>
     </form>

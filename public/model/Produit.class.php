@@ -1,4 +1,4 @@
-*<?php
+<?php
 
 class Produit
 {
@@ -11,7 +11,7 @@ class Produit
     private $vendeur;
 
     /**
-     * Produit constructor.
+     * Produit constructeur.
      * @param $id
      * @param $intitule
      * @param $description
@@ -31,57 +31,36 @@ class Produit
         $this->vendeur = $vendeur;
     }
 
-    /**
-     * @return mixed
-     */
     public function getId() : int
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
     public function getIntitule() : string
     {
         return $this->intitule;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDescription() : string
     {
         return $this->description;
     }
 
-    /**
-     * @return mixed
-     */
     public function getPrix() : string
     {
         return $this->prix;
     }
 
-    /**
-     * @return mixed
-     */
     public function getPhoto() : string
     {
         return $this->photo;
     }
 
-    /**
-     * @return mixed
-     */
     public function getCategorie() : string
     {
         return $this->categorie;
     }
 
-    /**
-     * @return mixed
-     */
     public function getVendeur() : int
     {
         return $this->vendeur;

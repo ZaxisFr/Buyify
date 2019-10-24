@@ -1,7 +1,12 @@
 $gray-400 : #CED4DA;
 $gray-500 : #ADB5BD;
 
-.formulaireAjoutProduit{
+.formulaire-ajout-produit{
+
+  .card-body{
+    max-width: 500px;
+  }
+
   .file-condition{
     position: relative;
     right : 0;

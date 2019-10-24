@@ -56,33 +56,27 @@ class ImageUpload {
             is_array($image['error']))
         ) {
             self::$errorMessage = 'parameters';
-            echo('test 1');
             return false;
         }
 
         // Check $_FILES['upfile']['error'] value.
         switch ($image['error']) {
             case UPLOAD_ERR_OK:
-              printf("test 12");
                 break;
             case UPLOAD_ERR_NO_FILE:
                 self::$errorMessage = 'no_file';
-                echo('test 2');
                 return false;
             case UPLOAD_ERR_INI_SIZE:
             case UPLOAD_ERR_FORM_SIZE:
                 self::$errorMessage = 'size';
-                echo('test 3');
                 return false;
             default:
                 self::$errorMessage = 'unknown';
-                echo('test 4');
                 return false;
         }
 
         if ($image['size'] > $maxSize) {
             self::$errorMessage = 'size';
-            echo('test 5');
             return false;
         }
 
