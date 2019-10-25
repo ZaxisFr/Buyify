@@ -85,8 +85,3 @@ if (isset($_GET['success'])) {
 $view->assign('cats',getCategories());
 $view->setTitle('Création de catégorie');
 $view->display('categorieCreation.view.php');
-
-
-
-
-

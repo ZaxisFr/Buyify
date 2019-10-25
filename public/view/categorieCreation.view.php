@@ -21,7 +21,7 @@
                     <select  class="form-control" id="parent" name="parent" required>
                         <?php foreach ($cats as $cat){ ?>
                         <option value="<?= $cat['nom'] ?>"><?= $cat['nom'] ?></option>
-                        <?php }; ?>
+                        <?php } ?>
                     </select></br>
                 </div>
         </div>
@@ -42,7 +42,7 @@
                     <select id="cat" class="form-control" name="cat" required>
                         <?php foreach ($cats as $cat){ ?>
                             <option value="<?= $cat['nom'] ?>"><?= $cat['nom'] ?></option>
-                        <?php }; ?>
+                        <?php } ?>
                     </select></br>
                 </div>
         </div>
@@ -55,13 +55,11 @@
     </div>
 </div>
 
-
-
 <div class="modal fade" id="confirmation-popup" tabindex="-1" role="dialog" aria-labelledby="confirmation-popup" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="moda-lLabel">Confirmer la suppression</h5>
+                <h5 class="modal-title" id="modal-Label">Confirmer la suppression</h5>
                 </button>
             </div>
             <div class="modal-body">
@@ -75,4 +73,3 @@
         </div>
     </div>
 </div>
-
