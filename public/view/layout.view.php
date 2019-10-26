@@ -21,6 +21,10 @@
         $('.close').click(function() {
             $(this).parent().remove();
         });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
     </script>
 </body>
 </html>

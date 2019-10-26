@@ -1,3 +1,7 @@
+<?php
+    require_once '../model/Message.class.php';
+    $nbMsg = Message::getNbMessagesNonLus();
+?>
 <header class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Buyify</a>
 
@@ -14,6 +18,9 @@
             require_once('../model/Utilisateur.class.php');
             if (Utilisateur::isConnecte()):
             ?>
+                <a class="nav-item nav-link" href="message.ctrl.php" data-toggle="tooltip" title="<?= $nbMsg ?> message(s) non lu(s)">
+                    <span class="far fa-envelope"></span><span class="badge badge-light"><?= $nbMsg ?></span>
+                </a>
                 <a class="nav-item nav-link" href="deconnexion.ctrl.php"><span class="fas fa-sign-out-alt "></span></a>
             <?php
             else:
