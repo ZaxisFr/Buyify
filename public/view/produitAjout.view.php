@@ -14,28 +14,28 @@
             <span class="input-group-text"> <span class="fas fa-heading"></span> </span>
         </div>
         <label for="intitule" class="d-none">Intitulé</label>
-        <input type="text" name="intitule" placeholder="Intitulé" class="form-control" value="">
+        <input type="text" name="intitule" id="intitule" placeholder="Intitulé" class="form-control" value="">
       </div>
       <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <span class="fas fa-align-justify"></span> </span>
         </div>
         <label for="description" class="d-none">description</label>
-        <textarea name="description" placeholder="Description" class="form-control" value=""></textarea>
+        <textarea name="description" id="description" placeholder="Description" class="form-control" value=""></textarea>
       </div>
       <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <span class="fas fa-euro-sign"></span> </span>
         </div>
         <label for="prix" class="d-none">prix</label>
-        <input type="number" name="prix" placeholder="Prix" class="form-control" value="">
+        <input type="number" id="prix" name="prix" placeholder="Prix" class="form-control" value="">
       </div>
       <div class="form-group input-group">
         <div class="input-group-prepend">
             <span class="input-group-text"> <span class="fas fa-list"></span> </span>
         </div>
         <label for="categorie" class="d-none">catégorie</label>
-        <select name="categorie" class="form-control">
+        <select name="categorie" id="categorie" class="form-control">
           <option value="" default>Catégorie</option>
           <?php foreach ($this->param['categories'] as $categorie): ?>
             <option value="<?=$categorie['nom']?>"><?=$categorie['nom']?></option>
@@ -47,7 +47,7 @@
           <span class="input-group-text" id="inputGroupFileAddon01"><span class="fas fa-image"></span></span>
         </div>
         <div class="custom-file">
-          <input type="file" class="custom-file-input"
+          <input type="file" id="image" class="custom-file-input"
             aria-describedby="inputGroupFileAddon01" name="image" id="image">
           <label class="custom-file-label" for="image">Sélectionner photo</label>
         </div>
@@ -70,7 +70,7 @@
             <span class="input-group-text"> <span class="fas fa-image"></span> </span>
         </div>
         <label for="image-url" class="d-none">image</label>
-        <input type="text" name="image-url" class="form-control" value="" placeholder="Entrez URL">
+        <input type="text" name="image-url" id="image-url" class="form-control" value="" placeholder="Entrez URL">
       </div>
       <button type="submit" class="btn btn-primary btn-block" name="ajout" value="valider">Valider</button>
     </form>

@@ -2,7 +2,7 @@
 
 
 class ImageUpload {
-    private static $APPLICATION_PATH = '/home/vagrant/Buyify/public';
+    private static $application_path = '..';
     private static $errorMessage;
     private static $newFileName;
     private static $relativePath = 'model/data/images';

@@ -1,5 +1,6 @@
-@import 'ajouter-produit';
-@import 'form';
+@use 'common';
+@import 'ajouter-produit.scss';
+@import 'form.scss';
 
 select{
   -moz-appearance : none;

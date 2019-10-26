@@ -1,37 +1,89 @@
-.formulaireAjoutProduit .file-condition {
+body {
+  color: #121212;
+}
+
+header .header-buttons .btn-secondary {
+  border: 1px solid #fefefe;
+  color: #fefefe;
+  background-color: transparent;
+}
+header .header-buttons .btn-secondary:hover {
+  border: 1px solid #d8d8d8;
+  color: #d8d8d8;
+  background-color: transparent;
+}
+
+.banner {
+  padding: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.btn-primary {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-secondary {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.formulaire-ajout-produit select {
+  cursor: pointer;
+}
+.formulaire-ajout-produit .custom-file {
+  cursor: pointer;
+}
+.formulaire-ajout-produit .custom-file-input {
+  cursor: pointer;
+  z-index: 20;
+}
+.formulaire-ajout-produit .custom-file-label {
+  cursor: pointer;
+  z-index: 20;
+}
+.formulaire-ajout-produit .card-body {
+  max-width: 500px;
+}
+.formulaire-ajout-produit .file-condition {
   position: relative;
   right: 0;
   font-size: 0.7em;
   color: #ADB5BD;
 }
-.formulaireAjoutProduit .ou {
+.formulaire-ajout-produit .ou {
   color: #ADB5BD;
   text-align: center;
   position: relative;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.formulaireAjoutProduit .ou span {
+.formulaire-ajout-produit .ou span {
   display: inline-block;
   position: relative;
 }
-.formulaireAjoutProduit .ou span::after,
-.formulaireAjoutProduit .ou span::before {
+.formulaire-ajout-produit .ou span::after,
+.formulaire-ajout-produit .ou span::before {
   content: "";
   position: absolute;
   height: 0px;
   border-bottom: none;
   border-top: 1px solid #ADB5BD;
   top: 0.75em;
-  width: 200px;
+  width: 900%;
 }
-.formulaireAjoutProduit .ou span:before {
+.formulaire-ajout-produit .ou span:before {
   right: 100%;
   margin-right: 15px;
 }
-.formulaireAjoutProduit .ou span:after {
+.formulaire-ajout-produit .ou span:after {
   left: 100%;
   margin-left: 15px;
+}
+
+#inscription-body article.card-body, #connexion-body article.card-body {
+  max-width: 400px;
 }
 
 select {

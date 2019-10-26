@@ -10,26 +10,6 @@ class Produit
     private $categorie;
     private $vendeur;
 
-    /**
-     * Produit constructeur.
-     * @param $id
-     * @param $intitule
-     * @param $description
-     * @param $prix
-     * @param $photo
-     * @param $categorie
-     * @param $vendeur
-     */
-    public function __construct(string $id, string $intitule, string $description, float $prix, string $photo, string $categorie, int $vendeur)
-    {
-        $this->id = $id;
-        $this->intitule = $intitule;
-        $this->description = $description;
-        $this->prix = $prix;
-        $this->photo = $photo;
-        $this->categorie = $categorie;
-        $this->vendeur = $vendeur;
-    }
 
     public function getId() : int
     {
