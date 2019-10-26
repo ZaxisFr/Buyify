@@ -26,13 +26,13 @@ function verifierAjoutProduit(View $view, array $info, DAO $db){
         setError($view, "Veuillez renseigner la catégorie");
         return;
     }
-    if(!chaineValide($imageUrl = $info['imageURL'] ?? '')|| isset($_FILES)){
+    if(!chaineValide($imageUrl = $info['image-url'] ?? '')&& $_FILES['image']['error']==4){
         setError($view, "Veuillez fournir une image");
         return;
     }
     $image = $_FILES;
-    if(chaineValide($info['imageURL'])){
-        $imageUrl = $info['imageURL'];
+    if(chaineValide($info['image-url'] ?? '')){
+        $imageUrl = $info['image-url'];
         if (!ImageUpload::retrieveImage($imageUrl)) {
             return;
         }
@@ -60,7 +60,7 @@ function verifierAjoutProduit(View $view, array $info, DAO $db){
     ]);
 
 
-    header('Location: ajout-produit.ctrl.php?success=true');
+    header('Location: produitAjout.ctrl.php?success=true');
     exit(0);
 }
 
@@ -70,7 +70,7 @@ require_once('../model/DAO.class.php');
 require_once('../model/Utilisateur.class.php');
 
 $view = new View();
-$db = new Dao();
+$db = new DAO();
 
 $categories = $db->select('Categorie','1',[],'nom');
 
@@ -79,7 +79,7 @@ $view->assign("categories", $categories);
 session_start();
 
 if (isset($_POST['ajout'])) {
-    verrifierAjoutProduit($view, $_POST ,$db);
+    verifierAjoutProduit($view, $_POST ,$db);
 }
 if (isset($_GET['success']) && filter_var($_GET['success'], FILTER_VALIDATE_BOOLEAN)) {
     $view->assign("succes", true);

@@ -37,7 +37,7 @@ class ImageUpload {
      * @return string
      */
     public static function getFullPath() : string {
-        return self::$APPLICATION_PATH . '/' . self::$relativePath . '/';
+        return self::$application_path . '/' . self::$relativePath . '/';
     }
 
     /**
@@ -106,7 +106,7 @@ class ImageUpload {
             return false;
         }
 
-        $tempImagePath = self::$APPLICATION_PATH . '/tempImg' . microtime(true) . '.tmp';
+        $tempImagePath = self::$application_path . '/tempImg' . microtime(true) . '.tmp';
         file_put_contents($tempImagePath, fopen($url, 'rb'));
 
         if (false === ($ext = self::checkImageFormat($tempImagePath))) {
