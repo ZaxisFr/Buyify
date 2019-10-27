@@ -2,7 +2,7 @@
 
 require_once('../model/DAO.class.php');
 
-class Utilisateur {
+class Utilisateur implements JsonSerializable {
 
     private $id;
     private $nom;
@@ -47,4 +47,12 @@ class Utilisateur {
         return (self::isConnecte()) ? self::getUtilisateurParId($_SESSION['id']) : null;
     }
 
+    /**
+     * Spécifie quelles données doivent être sérialisées dans un JSON
+     */
+    public function jsonSerialize() {
+        $vars = get_object_vars($this);
+        unset($vars['mot-de-passe']);
+        return $vars;
+    }
 }
