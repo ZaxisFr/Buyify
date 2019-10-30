@@ -34,8 +34,8 @@ $conv-radius: 3px;
     #msg-column {
         background-color: $gray-100;
         border: 1px solid $gray-200;
-        border-left: 0;
         border-bottom-right-radius: $conv-radius;
+        border-left: 0;
         border-top-right-radius: $conv-radius;
         padding: 10px;
 
