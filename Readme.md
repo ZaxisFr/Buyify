@@ -1,5 +1,7 @@
 # Buyify
 
+This repo is a school project where we have to make the base of a shop site.
+
 ## Installation
 
 To install this repository, clone it then run `npm install`
