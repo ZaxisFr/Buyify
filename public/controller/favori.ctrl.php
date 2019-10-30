@@ -1,28 +1,34 @@
 <?php
 
 session_start();
-
-require_once ("../model/DAO.class.php");
 require_once ("../model/Utilisateur.class.php");
-require_once ("../model/Produit.class.php");
 
-$db = new DAO();
+if(Utilisateur::isConnecte()){
+    require_once ("../model/DAO.class.php");
+    require_once ("../model/Produit.class.php");
 
-$utilisateurCourant = Utilisateur::getUtilisateurConnecte();
+    $db = new DAO();
 
-$produitsFavoris = $db->selectAsClass('Produit','Produit','id in (SELECT `id-produit` FROM Favori WHERE `id-utilisateur` = :id)',[
-    'id'=>$utilisateurCourant->getId()
-],'*');
+    $utilisateurCourant = Utilisateur::getUtilisateurConnecte();
 
-require_once ("../../framework/View.class.php");
-require_once ("../../framework/Layer.class.php");
+    $produitsFavoris = $db->selectAsClass('Produit','Produit','id in (SELECT `id-produit` FROM Favori WHERE `id-utilisateur` = :id)',[
+        'id'=>$utilisateurCourant->getId()
+    ],'*');
 
-$view = new View();
+    require_once ("../../framework/View.class.php");
 
-$view->assign('produitsFavoris', $produitsFavoris);
+    $_SESSION['prevurl'] = $_SERVER['REQUEST_URI'];
 
-$view->setTitle('Favoris');
+    $view = new View();
 
-$view->display("../view/favori.view.php");
+    $view->assign('produitsFavoris', $produitsFavoris);
 
+    $view->setTitle('Favoris');
+
+    $view->display("../view/favori.view.php");
+}
+else{
+    header('location: '.$_SERVER['HTTP_HOST'].'/controller/connexion.ctrl.php');
+}
 ?>
+

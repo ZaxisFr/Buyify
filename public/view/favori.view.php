@@ -5,19 +5,9 @@
     <div class="row">
         <?php
             foreach ($this->param['produitsFavoris'] as $produit){
-                Layer::displayStatique('carteProduit.layer.php',['produit'=>$produit]);
+                include("../view/template/carteProduit.template.php");
             }
         ?>
     </div>
-    <script>
-        function ellipsizeTextBox(id) {
-            var el = document.getElementById(id);
-            var wordArray = el.innerHTML.split(' ');
-            while(el.scrollHeight > el.offsetHeight) {
-                wordArray.pop();
-                el.innerHTML = wordArray.join(' ') + '...';
-            }
-        }
-        ellipsizeTextBox('description')
-    </script>
+    <script type="text/javascript" src="../view/scripts/multiLineElipsisText.js"></script>
 </div>

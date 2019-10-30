@@ -131,6 +131,36 @@ header .header-buttons .btn-secondary:hover {
   width: 100%;
 }
 
+.carte-produit {
+  /*
+    .description {
+      overflow: hidden;
+      position: relative;
+      line-height: 1.2em;
+      height: 6em;
+      text-align: justify;
+      margin-right: -1em;
+      padding-right: 1em;
+    }
+
+    .description:before {
+      content: '...';
+      //background: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,255));
+      position: absolute;
+      right: 0em;
+      bottom: 0;
+    }
+
+    .description:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: 0.2em;
+      background: white;
+    }*/
+}
 .carte-produit .card-header {
   display: flex;
   justify-content: space-between;
@@ -146,34 +176,18 @@ header .header-buttons .btn-secondary:hover {
   object-fit: cover;
 }
 .carte-produit .description {
-  overflow: hidden;
-  position: relative;
-  line-height: 1.2em;
-  max-height: 6em;
+  height: 6em;
   text-align: justify;
-  margin-right: -1em;
-  padding-right: 1em;
-}
-.carte-produit .description:before {
-  content: "...";
-  position: absolute;
-  right: 0em;
-  bottom: 0;
-}
-.carte-produit .description:after {
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-  background: white;
 }
 .carte-produit h5 {
+  font-size: 1em;
   margin: 0;
+  padding: 0;
+  height: 1em;
   word-break: keep-all;
   overflow-wrap: break-word;
   text-overflow: ellipsis;
+  font-weight: normal;
 }
 .carte-produit h6 {
   font-size: 0.7em;
