@@ -23,4 +23,4 @@ eslint:
   enabled: true
 
 sass-lint:
-  config_file: sass-lint.yml
+  config_file: .sass-lint.yml

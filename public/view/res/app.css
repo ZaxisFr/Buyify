@@ -1,36 +1,4 @@
 @charset "UTF-8";
-body {
-  color: #121212;
-}
-
-.banner {
-  padding: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.btn-primary {
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.btn-secondary {
-  padding: 10px;
-  border-radius: 5px;
-}
-
-select {
-  -moz-appearance: none;
-}
-
-.fa {
-  min-width: 15px;
-}
-
-.fas {
-  min-width: 15px;
-}
-
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -9687,6 +9655,38 @@ h3 {
     border-color: #dee2e6;
   }
 }
+body {
+  color: #121212;
+}
+
+.banner {
+  padding: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.btn-primary {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn-secondary {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+select {
+  -moz-appearance: none;
+}
+
+.fa {
+  min-width: 15px;
+}
+
+.fas {
+  min-width: 15px;
+}
+
 .formulaire-ajout-produit select {
   cursor: pointer;
 }
@@ -19417,15 +19417,16 @@ h3 {
   height: 90%;
 }
 #conversations #conversation-list {
-  padding: 0;
-  border-radius: 3px 0 0 3px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
   overflow: scroll;
+  padding: 0;
 }
 #conversations #conversation-list .conversation {
-  width: 100%;
-  padding: 20px;
   border-top: 1px solid #9275b7;
   cursor: pointer;
+  padding: 20px;
+  width: 100%;
 }
 #conversations #conversation-list .conversation.active {
   background-color: rgba(0, 0, 0, 0.1);
@@ -19467,7 +19468,7 @@ h3 {
   width: 100%;
 }
 #conversations #msg-column #envoyer-message input {
-  border-radius: 0 0 3px 0;
+  border-bottom-right-radius: 3px;
   border: 0;
 }
 

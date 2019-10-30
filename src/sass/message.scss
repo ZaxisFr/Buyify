@@ -9,15 +9,16 @@ $conv-radius: 3px;
     }
 
     #conversation-list {
-        padding: 0;
-        border-radius: $conv-radius 0 0 $conv-radius;
+        border-bottom-left-radius: $conv-radius;
+        border-top-left-radius: $conv-radius;
         overflow: scroll;
+        padding: 0;
 
         .conversation {
-            width: 100%;
-            padding: 20px;
             border-top: 1px solid darken(map-get($theme-colors, 'primary'), 5);
             cursor: pointer;
+            padding: 20px;
+            width: 100%;
 
             &.active {
                 background-color: rgba(0, 0, 0, 0.1);
@@ -67,7 +68,7 @@ $conv-radius: 3px;
             width: 100%;
 
             input {
-                border-radius: 0 0 $conv-radius 0;
+                border-bottom-right-radius: $conv-radius;
                 border: 0;
             }
         }
