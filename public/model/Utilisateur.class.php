@@ -35,6 +35,13 @@ class Utilisateur {
         return $this->$mdp; // Le nom de la colonne est mot-de-passe, qui ne peut pas être donné à une variable en PHP
     }
 
+    public function isFavori(int $idProduit):bool{
+        $db = new DAO();
+        return count($db->select('Favori','`id-utilisateur` = :utilisateur and `id-produit` = :produit',
+            ['utilisateur' => $this->getId(), 'produit'=>$idProduit]
+        ));
+    }
+
     /**
      * Vérifie si l'utilisateur est connecté : nécessite l'ouverture de session
      * @return bool

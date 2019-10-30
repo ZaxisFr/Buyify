@@ -8,7 +8,6 @@ class Produit
     private $prix;
     private $photo;
     private $categorie;
-    private $vendeur;
 
 
     public function getId() : int
@@ -43,7 +42,8 @@ class Produit
 
     public function getVendeur() : int
     {
-        return $this->vendeur;
+        $vendeur='vendu-par';
+        return $this->$vendeur;
     }
 
 
