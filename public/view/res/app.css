@@ -19439,8 +19439,9 @@ h3 {
   background-color: #f8f9fa;
   border: 1px solid #e9ecef;
   border-left: 0;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
   padding: 10px;
-  border-radius: 0 3px 3px 0;
 }
 #conversations #msg-column #message-list {
   overflow: scroll;
@@ -19450,26 +19451,26 @@ h3 {
   clear: both;
 }
 #conversations #msg-column .message span {
-  padding: 5px 10px;
+  border-radius: 15px;
   display: inline-block;
   height: 100%;
-  border-radius: 15px;
   margin-bottom: 2px;
+  padding: 5px 10px;
 }
 #conversations #msg-column .message span.self {
-  float: right;
   background-color: #dee2e6;
+  float: right;
 }
 #conversations #msg-column #envoyer-message {
-  position: absolute;
   bottom: 0;
   left: 0;
   margin: 0;
+  position: absolute;
   width: 100%;
 }
 #conversations #msg-column #envoyer-message input {
-  border-bottom-right-radius: 3px;
   border: 0;
+  border-bottom-right-radius: 3px;
 }
 
 /*# sourceMappingURL=app.css.map */
