@@ -22,5 +22,9 @@ phpcs:
 eslint:
   enabled: true
 
+scss-lint:
+  enabled: false
+
 sass-lint:
+  enabled: true
   config_file: .sass-lint.yml
