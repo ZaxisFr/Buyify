@@ -167,3 +167,6 @@ $RECYCLE.BIN/
 
 node_modules
 *.db
+
+#Dosier des images
+public/model/data/images/**
