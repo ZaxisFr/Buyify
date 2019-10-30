@@ -1,0 +1,9 @@
+rules:
+  hex-notation:
+    - 2
+    -
+      style: uppercase
+  indentation:
+    - 2
+    -
+      size: 4
