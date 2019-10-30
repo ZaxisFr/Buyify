@@ -43,7 +43,7 @@ class Utilisateur implements JsonSerializable {
         return isset($_SESSION['id']);
     }
 
-    public static function getUtilisateurConnecte() : Utilisateur {
+    public static function getUtilisateurConnecte() : ?Utilisateur {
         return (self::isConnecte()) ? self::getUtilisateurParId($_SESSION['id']) : null;
     }
 
