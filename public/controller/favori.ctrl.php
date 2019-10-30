@@ -28,7 +28,7 @@ if(Utilisateur::isConnecte()){
     $view->display("../view/favori.view.php");
 }
 else{
-    header('location: '.$_SERVER['HTTP_HOST'].'/controller/connexion.ctrl.php');
+    header('location: connexion.ctrl.php');
 }
 ?>
 

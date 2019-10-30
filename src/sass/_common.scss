@@ -5,57 +5,57 @@ body {
 header {
   .header-buttons {
     .btn-secondary {
-      $headerButton2Color: #fefefe;
-      $headerButton2Bg: transparent;
-      border: 1px solid $headerButton2Color;
-      color: $headerButton2Color;
-      background-color: $headerButton2Bg;
+      $header-button2-color: #fefefe;
+      $header-button2-bg: transparent;
+      background-color: $header-button2-bg;
+      border: 1px solid $header-button2-color;
+      color: $header-button2-color;
 
       &:hover {
-        $headerButton2Darken: 15;
-        border: 1px solid darken($headerButton2Color, $headerButton2Darken);
-        color: darken($headerButton2Color, $headerButton2Darken);
-        background-color: $headerButton2Bg;
+        $header-button2-darken: 15;
+        background-color: $header-button2-bg;
+        border: 1px solid darken($header-button2-color, $header-button2-darken);
+        color: darken($header-button2-color, $header-button2-darken);
       }
     }
   }
 }
 
 .banner {
-  padding: 1em;
   margin-top: 0;
   margin-bottom: 0;
+  padding: 1em;
 }
 
-$btnPadding: 10px;
-$btnRadius: 5px;
+$btn-padding: 10px;
+$btn-radius: 5px;
 .btn-primary {
-  padding: $btnPadding;
-  border-radius: $btnRadius;
+  padding: $btn-padding;
+  border-radius: $btn-radius;
 }
 
 .btn-secondary {
-  padding: $btnPadding;
-  border-radius: $btnRadius;
+  padding: $btn-padding;
+  border-radius: $btn-radius;
 }
 
 .div-responsive-wrapper {
   position: relative;
 
   .div-responsive {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
     align-items: center;
+    bottom: 0;
+    display: flex;
     justify-content: center;
+    left: 0;
     overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
 
     > img {
-      min-width: 100%;
       min-height: 100%;
+      min-width: 100%;
       width: auto;
     }
   }

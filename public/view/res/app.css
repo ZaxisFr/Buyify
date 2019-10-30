@@ -3,20 +3,20 @@ body {
 }
 
 header .header-buttons .btn-secondary {
+  background-color: transparent;
   border: 1px solid #fefefe;
   color: #fefefe;
-  background-color: transparent;
 }
 header .header-buttons .btn-secondary:hover {
+  background-color: transparent;
   border: 1px solid #d8d8d8;
   color: #d8d8d8;
-  background-color: transparent;
 }
 
 .banner {
-  padding: 1em;
   margin-top: 0;
   margin-bottom: 0;
+  padding: 1em;
 }
 
 .btn-primary {
@@ -33,19 +33,19 @@ header .header-buttons .btn-secondary:hover {
   position: relative;
 }
 .div-responsive-wrapper .div-responsive {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
   align-items: center;
+  bottom: 0;
+  display: flex;
   justify-content: center;
+  left: 0;
   overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .div-responsive-wrapper .div-responsive > img {
-  min-width: 100%;
   min-height: 100%;
+  min-width: 100%;
   width: auto;
 }
 .div-responsive-wrapper.ratio-4-3 {
@@ -131,49 +131,19 @@ header .header-buttons .btn-secondary:hover {
   width: 100%;
 }
 
-.carte-produit {
-  /*
-    .description {
-      overflow: hidden;
-      position: relative;
-      line-height: 1.2em;
-      height: 6em;
-      text-align: justify;
-      margin-right: -1em;
-      padding-right: 1em;
-    }
-
-    .description:before {
-      content: '...';
-      //background: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,255));
-      position: absolute;
-      right: 0em;
-      bottom: 0;
-    }
-
-    .description:after {
-      content: '';
-      position: absolute;
-      right: 0;
-      width: 1em;
-      height: 1em;
-      margin-top: 0.2em;
-      background: white;
-    }*/
-}
 .carte-produit .card-header {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 .carte-produit .card-footer {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 .carte-produit .card-img-top {
-  width: 100%;
   object-fit: cover;
+  width: 100%;
 }
 .carte-produit .description {
   height: 6em;
@@ -181,13 +151,12 @@ header .header-buttons .btn-secondary:hover {
 }
 .carte-produit h5 {
   font-size: 1em;
-  margin: 0;
-  padding: 0;
   height: 1em;
-  word-break: keep-all;
+  margin: 0;
   overflow-wrap: break-word;
+  padding: 0;
   text-overflow: ellipsis;
-  font-weight: normal;
+  word-break: keep-all;
 }
 .carte-produit h6 {
   font-size: 0.7em;
