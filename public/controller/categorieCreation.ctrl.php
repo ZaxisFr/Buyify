@@ -4,13 +4,13 @@ require_once ('../model/DAO.class.php');
 require_once ('_base.ctrl.php');
 
 function getCategories() : array {
-    $db = new DAO();
+    $db = DAO::getDb();
     $categorie =  $db->select('Categorie');
     return $categorie;
 }
 
 function verfierValeur(View $view, array $info){
-    $db = new DAO();
+    $db = DAO::getDb();
     if(!chaineValide($nomCat = $info['cat_name'])){
         ajoutErreur($view,"Le nom de catégorie ne peut pas être vide");
         return;
@@ -45,7 +45,7 @@ function verfierValeur(View $view, array $info){
 }
 
 function supprimerCategorie(View $view, array $info) {
-    $db = new DAO();
+    $db = DAO::getDb();
 
     if(!chaineValide($nomCat = $info['cat'] ?? '')){
         ajoutErreur($view,"Le nom de catégorie ne peut pas être vide");

@@ -1,10 +1,19 @@
 <?php
 
     class DAO {
+        static private $globalDb;
         private $db;
         private $database = 'sqlite:../model/data/buyify.db';
 
-        function __construct() {
+        static function getDb() {
+            if (self::$globalDb === null) {
+                self::$globalDb = new DAO();
+            }
+
+            return self::$globalDb;
+        }
+
+        private function __construct() {
             try {
               $this->db = new PDO($this->database);
             }

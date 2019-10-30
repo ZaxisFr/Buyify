@@ -11,7 +11,7 @@ if (!Utilisateur::isConnecte()) {
 $id = $_POST['id'];
 $contenu = trim($_POST['message'] ?? '');
 
-$db = new DAO();
+$db = DAO::getDb();
 
 $correspondant = Utilisateur::getUtilisateurParId($id);
 if (empty($correspondant)) {

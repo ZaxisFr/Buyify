@@ -11,7 +11,7 @@ if (!Utilisateur::isConnecte()) {
 $nom = explode(' ', $_POST['nom'] ?? ' ');
 $date = $_POST['date'] ?? '';
 
-$db = new DAO();
+$db = DAO::getDb();
 
 $correspondant = $db->selectAsClass('Utilisateur', 'Utilisateur', 'nom=:nom AND prenom=:prenom', [
     'nom' => $nom[0],

@@ -58,7 +58,7 @@ class Message implements JsonSerializable {
      * @return int Le nombre de messages non lus ou 0 si l'utilisateur est déconnecté
      */
     public static function getNbMessagesNonLus() : int {
-        $db = new DAO();
+        $db = DAO::getDb();
         if (Utilisateur::isConnecte()) {
             $id = Utilisateur::getUtilisateurConnecte()->getId();
             return $db->select("message", 'lu=0 AND recepteur=:id', ['id' => $id], 'COUNT(DISTINCT id) AS nb')[0]['nb'];
@@ -72,7 +72,7 @@ class Message implements JsonSerializable {
      * @return array|null La liste des id des correspondants de l'utilisateur ou null s'il n'est pas connecté
      */
     public static function getListeConversations() : ?array {
-        $db = new DAO();
+        $db = DAO::getDb();
         if (Utilisateur::isConnecte()) {
             $id = Utilisateur::getUtilisateurConnecte()->getId();
             $convList = $db->run("SELECT DISTINCT correspondant FROM (
@@ -96,7 +96,7 @@ class Message implements JsonSerializable {
      * @return array|null La liste des messages
      */
     public static function getMessagesDe(int $correspondantId) : ?array {
-        $db = new DAO();
+        $db = DAO::getDb();
         if (Utilisateur::isConnecte()) {
             $id = Utilisateur::getUtilisateurConnecte()->getId();
             return $db->selectAsClass("Message", "message", 'recepteur=:id AND emetteur=:id2 OR recepteur=:id2 AND emetteur=:id', [

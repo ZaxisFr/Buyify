@@ -70,7 +70,7 @@ require_once('../model/DAO.class.php');
 require_once('../model/Utilisateur.class.php');
 
 $view = new View();
-$db = new DAO();
+$db = DAO::getDb();
 
 $categories = $db->select('Categorie','1',[],'nom');
 

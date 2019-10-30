@@ -13,7 +13,7 @@ function verifierConnexion(View $view, array $infos) {
     $email = strtolower($infos['mail'] ?? '');
     $mdp = $infos['mdp'] ?? '';
 
-    $db = new DAO();
+    $db = DAO::getDb();
     $utilisateur = $db->selectAsClass('Utilisateur', 'Utilisateur', 'email=:email', ['email' => $email]);
     if (!isset($utilisateur[0])) {
         ajoutErreur($view, "L'adresse email renseignée ne correspond à aucun compte.");

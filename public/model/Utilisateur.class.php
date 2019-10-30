@@ -10,7 +10,7 @@ class Utilisateur implements JsonSerializable {
     private $email;
 
     public static function getUtilisateurParId($id) : Utilisateur {
-        $db = new DAO();
+        $db = DAO::getDb();
         return $db->selectAsClass('Utilisateur', 'Utilisateur', 'id=:id', ['id' => $id])[0];
     }
 
