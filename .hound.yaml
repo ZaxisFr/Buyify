@@ -1,0 +1,23 @@
+rubocop:
+  enabled: false
+
+coffeelint:
+  enabled: false
+
+jshint:
+  enabled: false
+
+hamllint:
+  enabled: false
+
+golint:
+  enabled: false
+
+swiftlint:
+  enabled: false
+
+phpcs:
+  enabled: true
+
+eslint:
+  enabled: true
