@@ -2,25 +2,6 @@ body {
     color: #121212;
 }
 
-header {
-    .header-buttons {
-        .btn-secondary {
-            $headerButton2Color: #fefefe;
-            $headerButton2Bg: transparent;
-            border: 1px solid $headerButton2Color;
-            color: $headerButton2Color;
-            background-color: $headerButton2Bg;
-
-            &:hover {
-                $headerButton2Darken: 15;
-                border: 1px solid darken($headerButton2Color, $headerButton2Darken);
-                color: darken($headerButton2Color, $headerButton2Darken);
-                background-color: $headerButton2Bg;
-            }
-        }
-    }
-}
-
 .banner {
     padding: 1em;
     margin-top: 0;
@@ -37,4 +18,16 @@ $btnRadius: 5px;
 .btn-secondary {
     padding: $btnPadding;
     border-radius: $btnRadius;
+}
+
+select {
+    -moz-appearance: none;
+}
+
+.fa {
+    min-width: 15px;
+}
+
+.fas {
+    min-width: 15px;
 }
