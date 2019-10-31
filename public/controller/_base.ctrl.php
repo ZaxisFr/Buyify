@@ -31,7 +31,7 @@ function getCategoriesFille(array $categoriesParents) : array {
 /**
  * @param string $nom
  * @return array
- * Retourn un array contenant la catégorie, sous forme de tableaux.
+ * Retourn un array contenant la catégorie.
  */
 function getCategorie(string $nom) : array {
     $db = new DAO();
