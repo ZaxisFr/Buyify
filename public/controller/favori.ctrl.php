@@ -7,7 +7,7 @@ if(Utilisateur::isConnecte()){
     require_once ("../model/DAO.class.php");
     require_once ("../model/Produit.class.php");
 
-    $db = new DAO();
+    $db = DAO::getDb();
 
     $utilisateurCourant = Utilisateur::getUtilisateurConnecte();
 

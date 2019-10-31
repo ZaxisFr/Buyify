@@ -1,17 +1,6 @@
-@use 'common';
-
+@use 'bootstrap-theme';
+@import 'common';
 @import 'ajouter-produit';
 @import 'form';
 @import 'carte-produit';
-
-select{
-  -moz-appearance : none;
-}
-
-.fa{
-  min-width: 15px;
-}
-
-.fas{
-  min-width: 15px;
-}
+@import 'message';

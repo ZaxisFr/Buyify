@@ -2,7 +2,7 @@
 
 require_once('../model/DAO.class.php');
 
-class Utilisateur {
+class Utilisateur implements JsonSerializable {
 
     private $id;
     private $nom;
@@ -10,7 +10,7 @@ class Utilisateur {
     private $email;
 
     public static function getUtilisateurParId($id) : Utilisateur {
-        $db = new DAO();
+        $db = DAO::getDb();
         return $db->selectAsClass('Utilisateur', 'Utilisateur', 'id=:id', ['id' => $id])[0];
     }
 
@@ -36,7 +36,7 @@ class Utilisateur {
     }
 
     public function isFavori(int $idProduit):bool{
-        $db = new DAO();
+        $db = DAO::getDb();
         return count($db->select('Favori','`id-utilisateur` = :utilisateur and `id-produit` = :produit',
             ['utilisateur' => $this->getId(), 'produit'=>$idProduit]
         ));
@@ -54,4 +54,12 @@ class Utilisateur {
         return (self::isConnecte()) ? self::getUtilisateurParId($_SESSION['id']) : null;
     }
 
+    /**
+     * Spécifie quelles données doivent être sérialisées dans un JSON
+     */
+    public function jsonSerialize() {
+        $vars = get_object_vars($this);
+        unset($vars['mot-de-passe']);
+        return $vars;
+    }
 }
