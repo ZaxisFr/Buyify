@@ -11,7 +11,7 @@ if (Utilisateur::isConnecte()) {
 }
 
 function verifierInscription(View $view, array $info) {
-    $db = new DAO();
+    $db = DAO::getDb();
 
     if (!isset($info['nom'])) {
         ajoutErreur($view, 'Veuillez entrer votre nom complet.');
