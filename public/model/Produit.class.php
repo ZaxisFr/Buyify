@@ -1,5 +1,8 @@
 <?php
 
+require_once('../model/DAO.class.php');
+
+
 class Produit
 {
     private $id;
@@ -46,6 +49,13 @@ class Produit
         return $this->$vendeur;
     }
 
+    public function retirer(){
+        self::retirerProduit($this->id);
+    }
+
+    static public function retirerProduit(int $id){
+        DAO::getDb()->run("DELETE FROM Produit WHERE id=:id",["id"=>$id]);
+    }
 
 }
 

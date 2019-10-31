@@ -1,0 +1,22 @@
+
+.mes-produits{
+    .bar-titre{
+        margin: 1em;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        .btn .fa{
+            font-size: 1.7em;
+        }
+    }
+
+    .sep{
+        margin: 0;
+        margin-left: 1.5em;
+        margin-right: 1.5em;
+        border-bottom: 1px solid $gray-500;
+    }
+
+    .card{
+        margin: 1em;
+    }
+}

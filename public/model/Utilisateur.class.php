@@ -42,6 +42,7 @@ class Utilisateur implements JsonSerializable {
         ));
     }
 
+
     /**
      * Vérifie si l'utilisateur est connecté : nécessite l'ouverture de session
      * @return bool

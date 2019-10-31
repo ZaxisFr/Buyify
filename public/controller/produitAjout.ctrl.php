@@ -26,7 +26,7 @@ function verifierAjoutProduit(View $view, array $info, DAO $db){
         setError($view, "Veuillez renseigner la catégorie");
         return;
     }
-    if(!chaineValide($imageUrl = $info['image-url'] ?? '')&& $_FILES['image']['error']==4){
+    if((!chaineValide($imageUrl = $info['image-url'] ?? '')&& $_FILES['image']['error']==4)){
         setError($view, "Veuillez fournir une image");
         return;
     }
@@ -50,17 +50,30 @@ function verifierAjoutProduit(View $view, array $info, DAO $db){
 
     $idUtilisateur = Utilisateur::getUtilisateurConnecte()->getId();
 
-    $db->run("INSERT INTO Produit ('intitule', 'description', 'prix', 'categorie', 'photo', 'vendu-par') VALUES (:intitule, :description, :prix, :categorie, :image, :venduPar)", [
-        'intitule' => $intitule,
-        'description' => $description,
-        'prix' => $prix,
-        'categorie' => $categorie,
-        'image' => $imageName,
-        'venduPar' => $idUtilisateur
-    ]);
+    if (isset($_GET['id'])){
+        echo"test1";
+        $db->run("UPDATE Produit SET intitule=:intitule, description=:description, prix=:prix, categorie=:categorie, photo=:image WHERE id=:id", [
+            'intitule' => $intitule,
+            'description' => $description,
+            'prix' => $prix,
+            'categorie' => $categorie,
+            'image' => $imageName,
+            'id' => $_GET['id']
+        ]);
+        header('Location: '.$_SESSION['prevurl'].'?modif=true');
+    }else{
+        echo"test2";
+        $db->run("INSERT INTO Produit ('intitule', 'description', 'prix', 'categorie', 'photo', 'vendu-par') VALUES (:intitule, :description, :prix, :categorie, :image, :venduPar)", [
+            'intitule' => $intitule,
+            'description' => $description,
+            'prix' => $prix,
+            'categorie' => $categorie,
+            'image' => $imageName,
+            'venduPar' => $idUtilisateur
+        ]);
+        header('Location: '.$_SESSION['prevurl'].'?ajout=true');
+    }
 
-
-    header('Location: produitAjout.ctrl.php?success=true');
     exit(0);
 }
 
@@ -68,6 +81,7 @@ require_once('../../framework/View.class.php');
 require_once('../model/ImageUpload.class.php');
 require_once('../model/DAO.class.php');
 require_once('../model/Utilisateur.class.php');
+require_once('../model/Produit.class.php');
 
 $view = new View();
 $db = DAO::getDb();
@@ -78,12 +92,20 @@ $view->assign("categories", $categories);
 
 session_start();
 
+
+
 if (isset($_POST['ajout'])) {
     verifierAjoutProduit($view, $_POST ,$db);
 }
 if (isset($_GET['success']) && filter_var($_GET['success'], FILTER_VALIDATE_BOOLEAN)) {
     $view->assign("succes", true);
 }
-$view->setTitle('Ajouter Produit');
+if(isset($_GET['produit'])){
+    $produit = $db->selectAsClass('Produit','Produit','id=:produit',['produit'=>$_GET['produit']])[0];
+    $view->assign('produit',$produit);
+    $view->setTitle('Mdifier '.$produit->getIntitule());
+}else{
+    $view->setTitle('Ajouter Produit');
+}
 $view->display('produitAjout.view.php');
 ?>
