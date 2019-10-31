@@ -1,8 +1,10 @@
-@use 'common';
-
+@use 'bootstrap-theme';
+@import 'common';
 @import 'ajouter-produit';
 @import 'form';
 @import 'error';
+@import 'carte-produit';
+@import 'message';
 
 select{
   -moz-appearance : none;
@@ -15,3 +17,6 @@ select{
 .fas{
   min-width: 15px;
 }
+
+
+

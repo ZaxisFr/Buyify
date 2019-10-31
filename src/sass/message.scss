@@ -1,0 +1,77 @@
+@import 'bootstrap-theme';
+
+$conv-radius: 3px;
+
+#conversations {
+
+    #conversation-box {
+        height: 90%;
+    }
+
+    #conversation-list {
+        border-bottom-left-radius: $conv-radius;
+        border-top-left-radius: $conv-radius;
+        overflow: scroll;
+        padding: 0;
+
+        .conversation {
+            border-top: 1px solid darken(map-get($theme-colors, 'primary'), 5);
+            cursor: pointer;
+            padding: 20px;
+            width: 100%;
+
+            &.active {
+                background-color: rgba(0, 0, 0, 0.1);
+                cursor: inherit;
+            }
+
+            &:first-child {
+                border-top: 0;
+            }
+        }
+    }
+
+    #msg-column {
+        background-color: $gray-100;
+        border: 1px solid $gray-200;
+        border-bottom-right-radius: $conv-radius;
+        border-left: 0;
+        border-top-right-radius: $conv-radius;
+        padding: 10px;
+
+        #message-list {
+            overflow: scroll;
+            padding-bottom: 5px;
+        }
+
+        .message {
+            clear: both;
+
+            span {
+                border-radius: 15px;
+                display: inline-block;
+                height: 100%;
+                margin-bottom: 2px;
+                padding: 5px 10px;
+
+                &.self {
+                    background-color: $gray-300;
+                    float: right;
+                }
+            }
+        }
+
+        #envoyer-message {
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            position: absolute;
+            width: 100%;
+
+            input {
+                border: 0;
+                border-bottom-right-radius: $conv-radius;
+            }
+        }
+    }
+}

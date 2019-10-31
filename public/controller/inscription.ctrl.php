@@ -2,6 +2,7 @@
 
 require_once ('../model/DAO.class.php');
 require_once ('../model/Utilisateur.class.php');
+require_once ('_base.ctrl.php');
 
 session_start();
 if (Utilisateur::isConnecte()) {
@@ -9,16 +10,8 @@ if (Utilisateur::isConnecte()) {
     exit(0);
 }
 
-function chaineValide(string $chaine) : bool {
-    return isset($chaine) && strlen(trim($chaine)) > 0;
-}
-
-function ajoutErreur(View $view, string $message) {
-    $view->assign('erreur', $message);
-}
-
 function verifierInscription(View $view, array $info) {
-    $db = new DAO();
+    $db = DAO::getDb();
 
     if (!isset($info['nom'])) {
         ajoutErreur($view, 'Veuillez entrer votre nom complet.');
@@ -49,7 +42,7 @@ function verifierInscription(View $view, array $info) {
         return;
     }
 
-    if (!chaineValide($email = $info['mail'])) {
+    if (!chaineValide($email = strtolower($info['mail'] ?? ''))) {
         ajoutErreur($view, 'Veuillez entrer votre adresse mail.');
         return;
     }
@@ -68,8 +61,8 @@ function verifierInscription(View $view, array $info) {
         return;
     }
 
-    $mdp = $info['mdp'];
-    $confirm = $info['confirmation'];
+    $mdp = $info['mdp'] ?? '';
+    $confirm = $info['confirmation'] ?? '';
 
     if (strlen($mdp) < 6) {
         ajoutErreur($view, 'Le mot de passe doit faire au minimum 6 caractères.');

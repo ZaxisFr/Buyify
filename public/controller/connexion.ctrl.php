@@ -3,20 +3,17 @@
 require_once ('../model/DAO.class.php');
 require_once ('../model/Utilisateur.class.php');
 require_once '../../framework/View.class.php';
+require_once ('_base.ctrl.php');
 
 session_start();
 
 $view = new View();
 
-function ajoutErreur(View $view, string $message) {
-    $view->assign('erreur', $message);
-}
-
 function verifierConnexion(View $view, array $infos) {
-    $email = $infos['mail'] ?? '';
+    $email = strtolower($infos['mail'] ?? '');
     $mdp = $infos['mdp'] ?? '';
 
-    $db = new DAO();
+    $db = DAO::getDb();
     $utilisateur = $db->selectAsClass('Utilisateur', 'Utilisateur', 'email=:email', ['email' => $email]);
     if (!isset($utilisateur[0])) {
         ajoutErreur($view, "L'adresse email renseignée ne correspond à aucun compte.");
