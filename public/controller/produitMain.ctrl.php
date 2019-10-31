@@ -74,11 +74,7 @@ function getCategories() : array {
     return $categorie;
 }
 
-function getCategorie(string $nom) : array {
-    $db = new DAO();
-    $categorie = $db->select('Categorie','nom=:nom', ['nom' => $nom]);
-    return $categorie;
-}
+
 
 require_once('_base.ctrl.php');
 
@@ -88,7 +84,7 @@ $view->assign('cats',getCategories());
 
 
 definitEvironement($view,$_POST);
-$view->assign('test',getCategoriesFille(getCategorie("Produits")));
+$view->assign('test',getCategorie("Produits"));
 $view->assign('Prod',trouverProduit(array()));
 $view->setTitle('BuyIfy');
 $view->display('produitListe.view.php');

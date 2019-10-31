@@ -1,13 +1,19 @@
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-        <div class="col-md-4">
-            <img src="..." class="card-img" alt="...">
+<div id="affichage-produits-body" class="container_fluid">
+
+    <div class="card mb-5" style="max-width:70%;">
+        <div class="card-header">
+            <h4>$intitule</h4>
         </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="http://www.finasrl.it/wp-content/uploads/2015/12/img-test.jpg" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="font-weight-bold">$prix</h4>
+                    <p class="card-text"></p>
+                    <p class="card-text"> $description</p>
+                </div>
             </div>
         </div>
     </div>
