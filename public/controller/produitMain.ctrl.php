@@ -27,12 +27,10 @@ function definitEvironement(View $view, array $info) {
     if (isset($info['categorie'])){
         $filtres['categorie'] = $info['categorie'];
     } else {
-        $filtres['categorie'] = "Produit";
+        $filtres['categorie'] = "Produits";
     }
 
     if (isset($info['prixMin'])){
-        if($info['prixMin'] <= 0 ){
-        }
         $filtres['prixMin'] = $info['prixMin'];
     } else {
         $filtres['prixMin'] = 0;
@@ -55,14 +53,23 @@ function definitEvironement(View $view, array $info) {
         $filtres['prixMax'] = 0;
 
     }
-
+    $view->assign('produits',trouverProduit($filtres));
     $view->assign('info',$info);
     $view->assign("filtres", $filtres);
 
 }
 function trouverProduit(array $filtres) : array{
     $db = new DAO();
-    $produits = $db->select('Produit');
+    $where = ' ? ';
+    $bind[] = $filtres['categorie'];
+    foreach (getCategoriesFille(getCategorie($filtres['categorie'])) as $cat ){
+        $where = $where . ', ? ';
+        $bind[] = $cat['nom'];
+    }
+    $bind[] = $filtres['prixMin'];
+    $bind[] = $filtres['prixMax'];
+    $produits = $db->select('Produit', "categorie IN (".$where .") AND PRIX >= ? AND PRIX <= ?", $bind);
+    // $produits = $db->select('Produit',':whereCat prix >=:prixMin AND prix<=:prixMax', ['whereCat' => $whereCat, 'prixMin' => $filtres['prixMin'],'prixMax' => $filtres['prixMax']]);
 
 
     return $produits;
@@ -84,8 +91,6 @@ $view->assign('cats',getCategories());
 
 
 definitEvironement($view,$_POST);
-$view->assign('test',getCategorie("Produits"));
-$view->assign('Prod',trouverProduit(array()));
 $view->setTitle('BuyIfy');
 $view->display('produitListe.view.php');
 

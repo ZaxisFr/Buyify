@@ -36,4 +36,4 @@
         </div>
     </div>
 
-<?php var_dump($test); ?>
+<?php var_dump($produits); ?>
