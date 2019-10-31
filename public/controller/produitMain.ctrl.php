@@ -52,7 +52,7 @@ function definitEvironement(View $view, array $info) {
     }
 
     if($nombreProduit == 0){
-        header('Location: errorPage.ctrl.php?error=804&msg="Il semble qu\'il n\'y ai pas de produit correspondent "');
+        header('Location: errorPage.ctrl.php?error=604&msg="Il semble qu\'il n\'y ai pas de produit correspondent "');
         exit(0);
     }
 
