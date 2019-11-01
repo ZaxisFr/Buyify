@@ -1,6 +1,9 @@
 <?php
+session_start();
 require_once('../model/DAO.class.php');
 require_once('_base.ctrl.php');
+require_once ("../model/Produit.class.php");
+require_once '../../framework/View.class.php';
 
 function definitEvironement(View $view, array $info) {
 
@@ -38,17 +41,23 @@ function definitEvironement(View $view, array $info) {
         $filtres['prixMax'] = 0;
     }
 
-    if (isset($info['numPage'])) {
-        $numPage = $info['numPage'];
+    if (isset($_GET['page'])) {
+        $numPage = $_GET['page'];
     } else {
         $numPage = 1;
     }
 
+    if (isset($_GET['nbProd'])) {
+        $nbProd = $_GET['nbProd'];
+    } else {
+        $nbProd = 8;
+    }
+
     $produits = trouverProduit($filtres);
     $nombreProduit = sizeof($produits);
-    $nombrePages = ($nombreProduit / 10);
-    if ($numPage-1 > 0){ //si $numpage == 1,3 on veut quand même une page de plus.
-        $numPage++;
+    $nombrePages = ($nombreProduit / $nbProd);
+    if ($nombrePages % 1 > 0){ //si $numpage == 1,3 on veut quand même une page de plus.
+        $nombrePages++;
     }
 
     if($nombreProduit == 0){
@@ -58,15 +67,15 @@ function definitEvironement(View $view, array $info) {
 
     $view->assign('cats', getCategories());
     $view->assign("filtres", $filtres);
+    $view->assign('nbProd', $nbProd);
     $view->assign('nombrePages',$nombrePages);
     $view->assign('nombreProduits',$nombreProduit);
     $view->assign("numPage", $numPage);
     $view->assign('produits', $produits);
-
 }
 
 function trouverProduit(array $filtres): array {
-    $db = new DAO();
+    $db =DAO::getDb();
     $where = ' ? ';
     $bind[] = $filtres['categorie'];
     foreach (getCategoriesFille(getCategorie($filtres['categorie'])) as $cat) {
@@ -75,26 +84,18 @@ function trouverProduit(array $filtres): array {
     }
     $bind[] = $filtres['prixMin'];
     $bind[] = $filtres['prixMax'];
-    $produits = $db->select('Produit', "categorie IN (" . $where . ") AND PRIX >= ? AND PRIX <= ?", $bind);
-    // $produits = $db->select('Produit',':whereCat prix >=:prixMin AND prix<=:prixMax', ['whereCat' => $whereCat, 'prixMin' => $filtres['prixMin'],'prixMax' => $filtres['prixMax']]);
-
+    $produits = $db->selectAsClass('Produit', 'Produit',"categorie IN (" . $where . ") AND PRIX >= ? AND PRIX <= ?", $bind);
 
     return $produits;
 }
 
 function getCategories(): array {
-    $db = new DAO();
+    $db = DAO::getDb();
     $categorie = $db->select('Categorie');
     return $categorie;
 }
 
-require_once('_base.ctrl.php');
-require_once '../../framework/View.class.php';
-
 $view = new View();
-
-
 definitEvironement($view, $_POST);
 $view->setTitle('BuyIfy');
 $view->display('produitListe.view.php');
-

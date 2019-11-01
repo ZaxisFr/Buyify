@@ -15,7 +15,7 @@ function chaineValide(string $chaine) : bool {
  * Retourne toutes les catégories filles des catégorie contenues dans $categoriesParents
  */
 function getCategoriesFille(array $categoriesParents) : array {
-    $db = new DAO();
+    $db =DAO::getDb();
     $categorie = array();
     foreach ($categoriesParents as $cat) {
         $categorie = array_merge($categorie, $db->select('Categorie', 'parent=:nom', ['nom' => $cat['nom']]));
@@ -34,7 +34,7 @@ function getCategoriesFille(array $categoriesParents) : array {
  * Retourn un array contenant la catégorie.
  */
 function getCategorie(string $nom) : array {
-    $db = new DAO();
+    $db = DAO::getDb();
     $categorie = $db->select('Categorie','nom=:nom', ['nom' => $nom]);
     return $categorie;
 }

@@ -5,6 +5,7 @@
 @import 'error';
 @import 'carte-produit';
 @import 'message';
+@import "affichage";
 
 select{
   -moz-appearance : none;
@@ -17,6 +18,3 @@ select{
 .fas{
   min-width: 15px;
 }
-
-
-
