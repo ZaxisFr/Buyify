@@ -31,15 +31,15 @@
         <ul class="pagination">
             <li class="page-item <?php if ($numPage - 1 <= 0) {
                 echo "disabled";
-            } ?>"><a class="page-link" href="#" tabindex="-1"><<</a></li>
+            } ?>"><a class="page-link" href="produitMain.ctrl.php?page=<?= $numPage - 1 ?>" tabindex="-1"><<</a></li>
             <?php for ($i = 1; $i <= $nombrePages; $i++) { ?>
                 <li class="page-item <?php if ($numPage == $i) {
                     echo "active";
                 } ?>"><a class="page-link" href="<?= $_SERVER['PHP_SELF'] . "?page=$i" ?>"><?= $i ?></a></li>
             <?php } ?>
-            <li class="page-item  <?php if ($numPage + 1 >= $nombrePages) {
+            <li class="page-item  <?php if ($numPage + 1 > $nombrePages) {
                 echo "disabled";
-            } ?>"><a class="page-link" href="#">>> </a></li>
+            } ?>"><a class="page-link" href="produitMain.ctrl.php?page=<?= $numPage + 1 ?>">>> </a></li>
         </ul>
     </div>
 
