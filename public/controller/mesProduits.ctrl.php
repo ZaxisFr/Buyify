@@ -14,10 +14,10 @@ $_SESSION['prevurl']=explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 $view = new View();
 
 if(isset($_GET['modif'])){
-    $view->assign('succes','Modification validé');
+    $view->assign('succes','Modification validée');
 }
 if(isset($_GET['sup'])){
-    $view->assign('succes','Suppression réussi');
+    $view->assign('succes','Suppression réussie');
 }
 if(isset($_GET['ajout'])){
     $view->assign('succes','Ajout réussi');

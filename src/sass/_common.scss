@@ -79,26 +79,26 @@ $btn-radius: 5px;
 }
 
 select {
-    -moz-appearance: none;
+  -moz-appearance: none;
 }
 
 .fa {
-    min-width: 15px;
+  min-width: 15px;
 }
 
 .fas {
-    min-width: 15px;
+  min-width: 15px;
 }
 
-.btn-icon{
+.btn-icon {
   background: transparent;
-  border: none;
-  color: black;
+  border: 0;
+  color: #000000;
   font-size: 20px;
   margin: 3px;
   padding: 3px;
 
-  :hover{
-    color: map_get($theme-colors,'primary');
+  :hover {
+    color: map_get($theme-colors, 'primary');
   }
 }

@@ -32,11 +32,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Etes Vous sur de vouloir supprimer ce produit.
+                    Confirmez-vous la suppression du produit ? Cette action est irréversible.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalSuppression<?=$produit->getId()?>">Fermer</button>
-                    <a class="btn btn-danger" href="suprimmerProduit.ctrl.php?id=<?=$produit->getId()?>"><i class="fas fa-trash"></i> Supprimer</a>
+                    <a class="btn btn-danger" href="supprimmerProduit.ctrl.php?id=<?=$produit->getId()?>"><i class="fas fa-trash"></i> Supprimer</a>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Etes Vous sur de vouloir modifier ce produit.
+                    Confirmez-vous la modification du produit ? Cett action est irréversible.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalEdit<?=$produit->getId()?>">Fermer</button>
