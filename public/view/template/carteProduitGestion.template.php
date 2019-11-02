@@ -51,7 +51,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Confirmez-vous la modification du produit ? Cett action est irréversible.
+                    Confirmez-vous la modification du produit ?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalEdit<?=$produit->getId()?>">Fermer</button>
