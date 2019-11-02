@@ -131,7 +131,8 @@ if (isset($_GET['produit'])) {
         $view->assign('produit', $produit);
         $view->setTitle('Modifier ' . $produit->getIntitule());
     }else{
-        header('Location: ' . $_SESSION['prevurl']);
+        setError($view,"Le produit que vous voulez modifier n'existe pas");
+        $view->setTitle('Ajouter Produit');
     }
 
 } else {
