@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_GET['id'])&&isset($_SESSION['prevurl'])){
+if(isset($_GET['id'])){
     require_once('../model/DAO.class.php');
     require_once('../model/Utilisateur.class.php');
     $db = DAO::getDb();
@@ -10,9 +10,8 @@ if(isset($_GET['id'])&&isset($_SESSION['prevurl'])){
     }else{
         $db->run('INSERT INTO Favori(`id-utilisateur`,`id-produit`) VALUES (:utilisateur,:produit)',['utilisateur' => $utiliseurCourant->getId(), 'produit'=>$_GET['id']]);
     }
-    header('location: '.$_SESSION['prevurl']);
+    header('location: '. ($_SESSION['prevurl'] ?? '/'));
 }
 else{
     header('location: '.$_SERVER['HTTP_HOST']);
 }
-?>

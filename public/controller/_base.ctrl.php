@@ -38,3 +38,5 @@ function getCategorie(string $nom) : array {
     $categorie = $db->select('Categorie','nom=:nom', ['nom' => $nom]);
     return $categorie;
 }
+
+$_SESSION['prevurl'] = $_SERVER['REQUEST_URI'];
