@@ -60,11 +60,6 @@ function definirEnvironnement(View $view, array $info) {
         $nombrePages = ceil($nombrePages);
     }
 
-    if($nombreProduit == 0){
-        header('Location: errorPage.ctrl.php?error=404&msg="Il semble qu\'il n\'y ait pas de produit correspondant "');
-        exit(0);
-    }
-
     $view->assign('cats', getCategories());
     $view->assign("filtres", $filtres);
     $view->assign('nbProd', $nbProd);

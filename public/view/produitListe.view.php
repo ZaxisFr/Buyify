@@ -15,6 +15,7 @@
         } ?>
     </div>
 
+    <?php if ($nombreProduits > 0): ?>
     <div class="card-deck">
         <?php
         for ($i = $nbProd * ($numPage - 1); $i < $nbProd * $numPage; $i++) {
@@ -42,6 +43,17 @@
             } ?>"><a class="page-link" href="produitMain.ctrl.php?page=<?= $numPage + 1 ?>">>> </a></li>
         </ul>
     </div>
+
+    <?php
+    else:
+    ?>
+    <div id="zero-produit" class="mx-auto">
+        <p>Aucun produit ne correspond à votre recherche.</p>
+        <a href="produitAjout.ctrl.php"><button class="btn btn-primary">Vendez le vôtre !</button></a>
+    </div>
+    <?php
+    endif;
+    ?>
 
     <!-- Modal de Filtres-->
     <div class="modal fade modal-filtre" tabindex="-1" role="dialog" aria-labelledby="modal-filtres" aria-hidden="true">

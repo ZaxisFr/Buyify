@@ -12,14 +12,6 @@ if (!Utilisateur::isConnecte()) {
     exit(0);
 }
 
-function chaineValide(string $chaine) : bool {
-    return isset($chaine) && strlen(trim($chaine)) > 0;
-}
-
-function setError(View $view, string $message){
-    $view->assign("error",$message);
-}
-
 function verifierAjoutProduit(View $view, array $info, DAO $db){
     if(!chaineValide($intitule = $info['intitule'] ?? '')){
         setError($view, "Veuillez renseigner l'intitulé");
