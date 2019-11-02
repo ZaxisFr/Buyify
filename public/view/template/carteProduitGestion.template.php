@@ -36,7 +36,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalSuppression<?=$produit->getId()?>">Fermer</button>
-                    <a class="btn btn-danger" href="supprimmerProduit.ctrl.php?id=<?=$produit->getId()?>"><i class="fas fa-trash"></i> Supprimer</a>
+                    <a class="btn btn-danger" href="supprimerProduit.ctrl.php?id=<?=$produit->getId()?>"><i class="fas fa-trash"></i> Supprimer</a>
                 </div>
             </div>
         </div>
