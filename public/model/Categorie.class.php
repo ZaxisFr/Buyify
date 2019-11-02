@@ -39,7 +39,7 @@ class Categorie
      * @return array of object id
      */
     public function getProduits() : array {
-        $dao = new DAO();
+        $dao = DAO::getDb();
         $produits = $dao->selectAsClass("Categorie","Produit","categorie = :categorie",['categorie'=> $this->getNom()],"id");
         return $produits;
     }

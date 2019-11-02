@@ -1,0 +1,43 @@
+.carte-produit {
+
+  .card-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-img-top {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .description {
+    height: 6em;
+    text-align: justify;
+  }
+
+  h5 {
+    font-size: 1em;
+    height: 1em;
+    margin: 0;
+    overflow-wrap: break-word;
+    padding: 0;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+  }
+
+  h6 {
+    font-size: 0.7em;
+  }
+
+  a {
+    color: #121212;
+    text-decoration: none;
+  }
+}

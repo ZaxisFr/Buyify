@@ -75,7 +75,7 @@ function verifierAjoutProduit(View $view, array $info, DAO $db){
 }
 
 $view = new View();
-$db = new DAO();
+$db = DAO::getDb();
 
 $categories = $db->select('Categorie','1',[],'nom');
 

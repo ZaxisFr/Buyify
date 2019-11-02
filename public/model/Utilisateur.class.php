@@ -10,7 +10,7 @@ class Utilisateur implements JsonSerializable {
     private $email;
 
     public static function getUtilisateurParId($id) : Utilisateur {
-        $db = new DAO();
+        $db = DAO::getDb();
         return $db->selectAsClass('Utilisateur', 'Utilisateur', 'id=:id', ['id' => $id])[0];
     }
 
@@ -33,6 +33,13 @@ class Utilisateur implements JsonSerializable {
     public function getMdp(): string {
         $mdp = 'mot-de-passe';
         return $this->$mdp; // Le nom de la colonne est mot-de-passe, qui ne peut pas être donné à une variable en PHP
+    }
+
+    public function isFavori(int $idProduit):bool{
+        $db = DAO::getDb();
+        return count($db->select('Favori','`id-utilisateur` = :utilisateur and `id-produit` = :produit',
+            ['utilisateur' => $this->getId(), 'produit'=>$idProduit]
+        ));
     }
 
     /**
