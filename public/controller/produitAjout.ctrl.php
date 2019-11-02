@@ -19,7 +19,7 @@ function verifierAjoutProduit(View $view, array $info, DAO $db)
         if(sizeof($produits)==1){
             $produit = $produits[0];
             if($produit->getVendeur()!=$idUtilisateur){
-                erreur(403,"accès interdit");
+                setError($view, "Vous ne pouvez pas modifier un produit que vous n'avez pas créé");
                 return;
             }
         }else{
