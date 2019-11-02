@@ -1,5 +1,15 @@
-
 <?php
+session_start();
+
+require_once('../../framework/View.class.php');
+require_once('../model/ImageUpload.class.php');
+require_once('../model/DAO.class.php');
+require_once('../model/Utilisateur.class.php');
+
+if (!Utilisateur::isConnecte()) {
+    header('Location: connexion.ctrl.php');
+    exit(0);
+}
 
 function chaineValide(string $chaine) : bool {
     return isset($chaine) && strlen(trim($chaine)) > 0;
@@ -64,19 +74,12 @@ function verifierAjoutProduit(View $view, array $info, DAO $db){
     exit(0);
 }
 
-require_once('../../framework/View.class.php');
-require_once('../model/ImageUpload.class.php');
-require_once('../model/DAO.class.php');
-require_once('../model/Utilisateur.class.php');
-
 $view = new View();
 $db = DAO::getDb();
 
 $categories = $db->select('Categorie','1',[],'nom');
 
 $view->assign("categories", $categories);
-
-session_start();
 
 if (isset($_POST['ajout'])) {
     verifierAjoutProduit($view, $_POST ,$db);
