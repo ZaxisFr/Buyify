@@ -32,7 +32,7 @@
             <li class="page-item <?php if ($numPage - 1 <= 0) {
                 echo "disabled";
             } ?>"><a class="page-link" href="#" tabindex="-1"><<</a></li>
-            <?php for ($i = 1; $i <= $nombrePages + 1; $i++) { ?>
+            <?php for ($i = 1; $i <= $nombrePages; $i++) { ?>
                 <li class="page-item <?php if ($numPage == $i) {
                     echo "active";
                 } ?>"><a class="page-link" href="<?= $_SERVER['PHP_SELF'] . "?page=$i" ?>"><?= $i ?></a></li>

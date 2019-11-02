@@ -57,7 +57,7 @@ function definirEnvironnement(View $view, array $info) {
     $nombreProduit = sizeof($produits);
     $nombrePages = ($nombreProduit / $nbProd);
     if (fmod($nombrePages, 1) !== 0.0){ //si $numpage == 1,3 on veut quand même une page de plus.
-        $nombrePages = floor(++$nombrePages);
+        $nombrePages = ceil($nombrePages);
     }
 
     if($nombreProduit == 0){
