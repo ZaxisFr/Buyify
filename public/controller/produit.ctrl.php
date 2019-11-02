@@ -16,7 +16,7 @@ $view = new View();
 if(isset($_GET['id'])){
     $view->assign('produit',getProduit($_GET['id']));
 } else {
-    header('Location: errorPage.ctrl.php?error=400&msg="Id de produit recherché manquant ou incorrecte"');
+    header('Location: errorPage.ctrl.php?error=400&msg="Id de produit recherché manquant ou incorrect"');
     exit(0);
 }
 
