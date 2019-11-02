@@ -1,5 +1,7 @@
 <?php
 
+require_once '../model/Sanitizer.class.php';
+
 function ajoutErreur(View $view, string $message) {
     $view->assign('erreur', $message);
 }
