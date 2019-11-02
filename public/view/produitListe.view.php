@@ -69,7 +69,7 @@
                                minlength="1"
                                maxlength="6" size="7">
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="Ajouter Fitlre" name="AjouterFiltre"/>
+                    <input type="submit" class="btn btn-primary btn-block" value="Ajouter filtre" name="AjouterFiltre"/>
                     <input type="reset" class="btn btn-primary btn-block" value="Reinisialiser" name="Reinisialiser"/>
                 </form>
             </div>
