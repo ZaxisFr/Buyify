@@ -18,5 +18,5 @@ if(isset($_GET['error'])){
 
 
 
-$view->setTitle('BuyIfy');
+$view->setTitle('Buyify');
 $view->display('error/erreurPage.err.php');

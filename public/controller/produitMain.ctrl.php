@@ -5,7 +5,7 @@ require_once('_base.ctrl.php');
 require_once ("../model/Produit.class.php");
 require_once '../../framework/View.class.php';
 
-function definitEvironement(View $view, array $info) {
+function definirEnvironnement(View $view, array $info) {
 
     if (isset($info['filtres'])) {
         $filtres = $info['filtres'];
@@ -26,7 +26,7 @@ function definitEvironement(View $view, array $info) {
     }
 
     if ($filtres['prixMin'] < 0) {
-        ajoutErreur($view, "Le prix ne peut pas être pas négatif");
+        ajoutErreur($view, "Le prix ne peut pas être négatif");
         $filtres['prixMin'] = 0;
     }
 
@@ -37,7 +37,7 @@ function definitEvironement(View $view, array $info) {
     }
 
     if ($filtres['prixMax'] < 0) {
-        ajoutErreur($view, "Le prix ne peut pas être pas négatif");
+        ajoutErreur($view, "Le prix ne peut pas être négatif");
         $filtres['prixMax'] = 0;
     }
 
@@ -61,7 +61,7 @@ function definitEvironement(View $view, array $info) {
     }
 
     if($nombreProduit == 0){
-        header('Location: errorPage.ctrl.php?error=604&msg="Il semble qu\'il n\'y ai pas de produit correspondent "');
+        header('Location: errorPage.ctrl.php?error=404&msg="Il semble qu\'il n\'y ait pas de produit correspondant "');
         exit(0);
     }
 
@@ -96,6 +96,6 @@ function getCategories(): array {
 }
 
 $view = new View();
-definitEvironement($view, $_POST);
-$view->setTitle('BuyIfy');
+definirEnvironnement($view, $_POST);
+$view->setTitle('Buyify');
 $view->display('produitListe.view.php');
