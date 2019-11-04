@@ -28,7 +28,7 @@
             <span class="input-group-text"> <span class="fas fa-euro-sign"></span> </span>
         </div>
         <label for="prix" class="d-none">prix</label>
-        <input type="number" id="prix" name="prix" placeholder="Prix" class="form-control" value="">
+        <input type="number" id="prix" min="0" name="prix" placeholder="Prix" class="form-control" value="">
       </div>
       <div class="form-group input-group">
         <div class="input-group-prepend">

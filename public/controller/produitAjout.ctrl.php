@@ -32,8 +32,17 @@ function verifierAjoutProduit(View $view, array $info, DAO $db){
         setError($view, "Veuillez renseigner le prix");
         return;
     }
+    if(intval($prix)<0){
+        setError($view, "Veuillez renseigner un prix positif");
+        return;
+    }
     if(!chaineValide($categorie = $info['categorie'] ?? '')){
         setError($view, "Veuillez renseigner la catégorie");
+        return;
+    }
+    $categories = $db->select('Categorie','1',[],'nom');
+    if(!in_array([0=>$categorie,'nom'=>$categorie],$categories)){
+        setError($view, "Veuillez renseigner une catégorie existante");
         return;
     }
     if(!chaineValide($imageUrl = $info['image-url'] ?? '')&& $_FILES['image']['error']==4){
