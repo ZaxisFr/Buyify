@@ -1,5 +1,6 @@
 <?php
 require_once "../model/DAO.class.php";
+require_once "../model/Sanitizer.class.php";
 
 class Categorie
 {
@@ -25,7 +26,7 @@ class Categorie
      * @return string
      */
     public function getNom(): string {
-        return $this->_nom;
+        return Sanitizer::sanitizeString($this->_nom);
     }
         /**
      * @return Categorie
@@ -44,4 +45,3 @@ class Categorie
         return $produits;
     }
 }
-?>

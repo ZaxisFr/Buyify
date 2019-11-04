@@ -2,6 +2,7 @@
 
 require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
+require_once('../model/Sanitizer.class.php');
 
 class Message implements JsonSerializable {
     private $id;
@@ -18,7 +19,7 @@ class Message implements JsonSerializable {
     }
 
     public function getContenu() : string {
-        return $this->contenu;
+        return Sanitizer::sanitizeString($this->contenu);
     }
 
     public function getDate() {
@@ -134,7 +135,7 @@ class Message implements JsonSerializable {
     public function jsonSerialize() {
         $this->getRecepteur(); // On génère le récepteur et l'emetteur
         $this->getEmetteur();  // Pour éviter d'avoir des null dans la sérialisation
-        $vars = get_object_vars($this);
+        $vars = Sanitizer::sanitize(get_object_vars($this));
         unset($vars['emetteur']);  // On unset l'emetteur et le récepteur car les id sont
         unset($vars['recepteur']); // déjà contenus dans les objets récupérés ci-dessus
         return $vars;
