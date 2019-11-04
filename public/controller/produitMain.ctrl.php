@@ -57,12 +57,7 @@ function definirEnvironnement(View $view, array $info) {
     $nombreProduit = sizeof($produits);
     $nombrePages = ($nombreProduit / $nbProd);
     if (fmod($nombrePages, 1) !== 0.0){ //si $numpage == 1,3 on veut quand même une page de plus.
-        $nombrePages = floor(++$nombrePages);
-    }
-
-    if($nombreProduit == 0){
-        header('Location: errorPage.ctrl.php?error=404&msg="Il semble qu\'il n\'y ait pas de produit correspondant "');
-        exit(0);
+        $nombrePages = ceil($nombrePages);
     }
 
     $view->assign('cats', getCategories());

@@ -4,6 +4,7 @@ session_start();
 require_once ("../model/Utilisateur.class.php");
 
 if(Utilisateur::isConnecte()){
+    require_once "_base.ctrl.php";
     require_once ("../model/DAO.class.php");
     require_once ("../model/Produit.class.php");
 
@@ -16,19 +17,12 @@ if(Utilisateur::isConnecte()){
     ],'*');
 
     require_once ("../../framework/View.class.php");
-
-    $_SESSION['prevurl'] = $_SERVER['REQUEST_URI'];
-
     $view = new View();
-
     $view->assign('produitsFavoris', $produitsFavoris);
-
     $view->setTitle('Favoris');
-
     $view->display("../view/favori.view.php");
 }
 else{
     header('location: connexion.ctrl.php');
 }
-?>
 

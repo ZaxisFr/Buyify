@@ -3,4 +3,4 @@
 session_start();
 session_destroy();
 
-header('Location: connexion.ctrl.php');
+header('Location: ' . $_SESSION['prevurl'] ?? 'connexion.ctrl.php');

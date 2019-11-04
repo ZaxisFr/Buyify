@@ -5,18 +5,11 @@ require_once('../../framework/View.class.php');
 require_once('../model/ImageUpload.class.php');
 require_once('../model/DAO.class.php');
 require_once('../model/Utilisateur.class.php');
+require_once ('_base.ctrl.php');
 
 if (!Utilisateur::isConnecte()) {
     header('Location: connexion.ctrl.php');
     exit(0);
-}
-
-function chaineValide(string $chaine) : bool {
-    return isset($chaine) && strlen(trim($chaine)) > 0;
-}
-
-function setError(View $view, string $message){
-    $view->assign("error",$message);
 }
 
 function verifierAjoutProduit(View $view, array $info, DAO $db){

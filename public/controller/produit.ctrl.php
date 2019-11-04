@@ -5,19 +5,28 @@ require_once('../model/DAO.class.php');
 require_once ("../model/Produit.class.php");
 require_once '../../framework/View.class.php';
 
-function getProduit(int $id): Produit {
+function getProduit(int $id): ?Produit {
     $db = DAO::getDb();
 
     $produit = $db->selectAsClass('Produit','Produit','id=:id',['id' => $id]);
-    return $produit[0];
+    return $produit[0] ?? null;
+}
+
+function produitInexistant() {
+    header('Location: errorPage.ctrl.php?error=400&msg=Id de produit recherché manquant ou incorrect');
+    exit(0);
 }
 
 $view = new View();
-if(isset($_GET['id'])){
-    $view->assign('produit',getProduit($_GET['id']));
+if(isset($_GET['id'])) {
+    $produit = getProduit($_GET['id']);
+    if ($produit != null) {
+        $view->assign('produit', $produit);
+    } else {
+        produitInexistant();
+    }
 } else {
-    header('Location: errorPage.ctrl.php?error=400&msg="Id de produit recherché manquant ou incorrect"');
-    exit(0);
+    produitInexistant();
 }
 
 $view->setTitle('Buyify');

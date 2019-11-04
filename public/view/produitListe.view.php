@@ -15,6 +15,7 @@
         } ?>
     </div>
 
+    <?php if ($nombreProduits > 0): ?>
     <div class="card-deck">
         <?php
         for ($i = $nbProd * ($numPage - 1); $i < $nbProd * $numPage; $i++) {
@@ -31,17 +32,28 @@
         <ul class="pagination">
             <li class="page-item <?php if ($numPage - 1 <= 0) {
                 echo "disabled";
-            } ?>"><a class="page-link" href="#" tabindex="-1"><<</a></li>
-            <?php for ($i = 1; $i <= $nombrePages + 1; $i++) { ?>
+            } ?>"><a class="page-link" href="produitMain.ctrl.php?page=<?= $numPage - 1 ?>" tabindex="-1"><<</a></li>
+            <?php for ($i = 1; $i <= $nombrePages; $i++) { ?>
                 <li class="page-item <?php if ($numPage == $i) {
                     echo "active";
                 } ?>"><a class="page-link" href="<?= $_SERVER['PHP_SELF'] . "?page=$i" ?>"><?= $i ?></a></li>
             <?php } ?>
-            <li class="page-item  <?php if ($numPage + 1 >= $nombrePages) {
+            <li class="page-item  <?php if ($numPage + 1 > $nombrePages) {
                 echo "disabled";
-            } ?>"><a class="page-link" href="#">>> </a></li>
+            } ?>"><a class="page-link" href="produitMain.ctrl.php?page=<?= $numPage + 1 ?>">>> </a></li>
         </ul>
     </div>
+
+    <?php
+    else:
+    ?>
+    <div id="zero-produit" class="mx-auto">
+        <p>Aucun produit ne correspond à votre recherche.</p>
+        <a href="produitAjout.ctrl.php"><button class="btn btn-primary">Vendez le vôtre !</button></a>
+    </div>
+    <?php
+    endif;
+    ?>
 
     <!-- Modal de Filtres-->
     <div class="modal fade modal-filtre" tabindex="-1" role="dialog" aria-labelledby="modal-filtres" aria-hidden="true">
@@ -69,7 +81,7 @@
                                minlength="1"
                                maxlength="6" size="7">
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block" value="Ajouter Fitlre" name="AjouterFiltre"/>
+                    <input type="submit" class="btn btn-primary btn-block" value="Ajouter filtre" name="AjouterFiltre"/>
                     <input type="reset" class="btn btn-primary btn-block" value="Reinisialiser" name="Reinisialiser"/>
                 </form>
             </div>

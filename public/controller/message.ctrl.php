@@ -3,6 +3,7 @@
 require_once('../../framework/View.class.php');
 require_once('../model/Utilisateur.class.php');
 require_once('../model/Message.class.php');
+require_once ('_base.ctrl.php');
 
 session_start();
 if (!Utilisateur::isConnecte()) {
