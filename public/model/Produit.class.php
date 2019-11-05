@@ -1,7 +1,7 @@
 <?php
 
 require_once('../model/DAO.class.php');
-
+require_once '../model/Sanitizer.class.php';
 
 class Produit
 {
@@ -20,17 +20,17 @@ class Produit
 
     public function getIntitule() : string
     {
-        return $this->intitule;
+        return Sanitizer::sanitizeString($this->intitule);
     }
 
     public function getDescription() : string
     {
-        return $this->description;
+        return Sanitizer::sanitizeString($this->description);
     }
 
     public function getPrix() : string
     {
-        return $this->prix;
+        return Sanitizer::sanitizeString($this->prix);
     }
 
     public function getPhoto() : string
@@ -40,7 +40,7 @@ class Produit
 
     public function getCategorie() : string
     {
-        return $this->categorie;
+        return Sanitizer::sanitizeString($this->categorie);
     }
 
     public function getVendeur() : int
@@ -56,7 +56,4 @@ class Produit
     static public function retirerProduit(int $id){
         DAO::getDb()->run("DELETE FROM Produit WHERE id=:id",["id"=>$id]);
     }
-
 }
-
-?>

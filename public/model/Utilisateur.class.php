@@ -1,6 +1,7 @@
 <?php
 
 require_once('../model/DAO.class.php');
+require_once('../model/Sanitizer.class.php');
 
 class Utilisateur implements JsonSerializable {
 
@@ -19,11 +20,11 @@ class Utilisateur implements JsonSerializable {
     }
 
     public function getNom(): string {
-        return $this->nom;
+        return Sanitizer::sanitizeString($this->nom);
     }
 
     public function getPrenom(): string {
-        return $this->prenom;
+        return Sanitizer::sanitizeString($this->prenom);
     }
 
     public function getEmail(): string {
@@ -35,7 +36,7 @@ class Utilisateur implements JsonSerializable {
         return $this->$mdp; // Le nom de la colonne est mot-de-passe, qui ne peut pas être donné à une variable en PHP
     }
 
-    public function isFavori(int $idProduit):bool{
+    public function isFavori(int $idProduit) : bool {
         $db = DAO::getDb();
         return count($db->select('Favori','`id-utilisateur` = :utilisateur and `id-produit` = :produit',
             ['utilisateur' => $this->getId(), 'produit'=>$idProduit]
@@ -51,7 +52,7 @@ class Utilisateur implements JsonSerializable {
         return isset($_SESSION['id']);
     }
 
-    public static function getUtilisateurConnecte() : Utilisateur {
+    public static function getUtilisateurConnecte() : ?Utilisateur {
         return (self::isConnecte()) ? self::getUtilisateurParId($_SESSION['id']) : null;
     }
 

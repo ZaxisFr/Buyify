@@ -19387,8 +19387,8 @@ select {
 
 .btn-icon {
   background: transparent;
-  border: none;
-  color: black;
+  border: 0;
+  color: #000000;
   font-size: 20px;
   margin: 3px;
   padding: 3px;
@@ -19465,6 +19465,15 @@ select {
 }
 #categorie-body .form-group {
   width: 100%;
+}
+
+#error {
+  display: flex;
+  justify-content: center;
+}
+#error img {
+  height: 20%;
+  width: 20%;
 }
 
 .carte-produit .card-header {
@@ -29243,13 +29252,40 @@ h3 {
   font-size: 1.7em;
 }
 .mes-produits .sep {
+  border-bottom: 1px solid #ADB5BD;
   margin: 0;
   margin-left: 1.5em;
   margin-right: 1.5em;
-  border-bottom: 1px solid #ADB5BD;
 }
 .mes-produits .card {
   margin: 1em;
+}
+
+#zero-produit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pagination-module {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+#bouton-module {
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+#produit {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.2%;
+}
+
+#mainpage .card {
+  margin-top: 2%;
 }
 
 /*# sourceMappingURL=app.css.map */

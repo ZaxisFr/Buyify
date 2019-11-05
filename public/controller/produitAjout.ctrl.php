@@ -1,13 +1,16 @@
 <?php
+session_start();
 
-function chaineValide(string $chaine): bool
-{
-    return isset($chaine) && strlen(trim($chaine)) > 0;
-}
+require_once('../../framework/View.class.php');
+require_once('../model/ImageUpload.class.php');
+require_once('../model/DAO.class.php');
+require_once('../model/Utilisateur.class.php');
+require_once('../model/Produit.class.php');
+require_once ('_base.ctrl.php');
 
-function setError(View $view, string $message)
-{
-    $view->assign("error", $message);
+if (!Utilisateur::isConnecte()) {
+    header('Location: connexion.ctrl.php');
+    exit(0);
 }
 
 function verifierAjoutProduit(View $view, array $info, DAO $db)
@@ -19,33 +22,44 @@ function verifierAjoutProduit(View $view, array $info, DAO $db)
         if(sizeof($produits)==1){
             $produit = $produits[0];
             if($produit->getVendeur()!=$idUtilisateur){
-                setError($view, "Vous ne pouvez pas modifier un produit que vous n'avez pas créé");
+                ajoutErreur($view, "Vous ne pouvez pas modifier un produit que vous n'avez pas créé");
                 return;
             }
         }else{
-            setError($view, "Produit Invalide");
+            ajoutErreur($view, "Produit Invalide");
             return;
         }
     }
 
     if (!chaineValide($intitule = $info['intitule'] ?? '')) {
-        setError($view, "Veuillez renseigner l'intitulé");
+        ajoutErreur($view, "Veuillez renseigner l'intitulé");
         return;
     }
     if (!chaineValide($description = $info['description'] ?? '')) {
-        setError($view, "Veuillez renseigner la description");
+        ajoutErreur($view, "Veuillez renseigner la description");
         return;
     }
     if (!chaineValide($prix = $info['prix'] ?? '')) {
-        setError($view, "Veuillez renseigner le prix");
+        ajoutErreur($view, "Veuillez renseigner le prix");
         return;
     }
+
+    if(intval($prix)<0){
+        ajoutErreur($view, "Veuillez renseigner un prix positif");
+        return;
+    }
+
     if (!chaineValide($categorie = $info['categorie'] ?? '')) {
-        setError($view, "Veuillez renseigner la catégorie");
+        ajoutErreur($view, "Veuillez renseigner la catégorie");
         return;
     }
     if (!chaineValide($imageUrl = $info['image-url'] ?? '') && $_FILES['image']['error'] == 4) {
-        setError($view, "Veuillez fournir une image");
+    $categories = $db->select('Categorie','1',[],'nom');
+    if(!in_array([0=>$categorie,'nom'=>$categorie],$categories)){
+        ajoutErreur($view, "Veuillez renseigner une catégorie existante");
+        return;
+    }
+        ajoutErreur($view, "Veuillez fournir une image");
         if(!isset($produit)){
             return;
         }
@@ -60,9 +74,9 @@ function verifierAjoutProduit(View $view, array $info, DAO $db)
         } else {
             if (!ImageUpload::uploadImage($image['image'], 2000000)) {
                 if (ImageUpload::getErrorMessage() == "size") {
-                    setError($view, "La taille de l'image ne doit pas dépasser 2Mo");
+                    ajoutErreur($view, "La taille de l'image ne doit pas dépasser 2Mo");
                 } else {
-                    setError($view, "Erreur de l'envoi de l'image");
+                    ajoutErreur($view, "Erreur de l'envoi de l'image");
                 }
                 return;
             }
@@ -98,25 +112,12 @@ function verifierAjoutProduit(View $view, array $info, DAO $db)
     exit(0);
 }
 
-require_once('../../framework/View.class.php');
-require_once('../model/ImageUpload.class.php');
-require_once('../model/DAO.class.php');
-require_once('../model/Utilisateur.class.php');
-require_once('../model/Produit.class.php');
-
 $view = new View();
 $db = DAO::getDb();
 
 $categories = $db->select('Categorie', '1', [], 'nom');
 
 $view->assign("categories", $categories);
-
-session_start();
-
-if(!Utilisateur::isConnecte()){
-    header('location: connexion.ctrl.php');
-    exit(0);
-}
 
 if (isset($_POST['ajout'])) {
     verifierAjoutProduit($view, $_POST, $db);
@@ -131,7 +132,7 @@ if (isset($_GET['produit'])) {
         $view->assign('produit', $produit);
         $view->setTitle('Modifier ' . $produit->getIntitule());
     }else{
-        setError($view,"Le produit que vous voulez modifier n'existe pas");
+        ajoutErreur($view,"Le produit que vous voulez modifier n'existe pas");
         $view->setTitle('Ajouter Produit');
     }
 
@@ -139,4 +140,3 @@ if (isset($_GET['produit'])) {
     $view->setTitle('Ajouter Produit');
 }
 $view->display('produitAjout.view.php');
-?>
