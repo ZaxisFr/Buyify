@@ -7,6 +7,11 @@ require_once ('_base.ctrl.php');
 
 session_start();
 
+if (Utilisateur::isConnecte()) {
+    header('Location: /');
+    exit(0);
+}
+
 $view = new View();
 
 function verifierConnexion(View $view, array $infos) {
@@ -31,7 +36,7 @@ function verifierConnexion(View $view, array $infos) {
     $_SESSION['prenom'] = $utilisateur->getPrenom();
     $_SESSION['email'] = $utilisateur->getEmail();
 
-    header('Location: connexion.ctrl.php');
+    header('Location: /');
     exit(0);
 }
 
