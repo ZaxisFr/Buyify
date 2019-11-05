@@ -19467,6 +19467,10 @@ select {
   width: 100%;
 }
 
+.modal-filtre .modal-content {
+  padding: 10px;
+}
+
 #error {
   display: flex;
   justify-content: center;
