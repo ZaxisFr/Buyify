@@ -23,3 +23,4 @@
 
 <?php
 include_once('../view/template/modaleContact.template.php');
+?>
