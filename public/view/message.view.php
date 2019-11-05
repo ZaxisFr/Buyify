@@ -1,3 +1,9 @@
+<?php if (sizeof($conversations) === 0): ?>
+<div class="container" id="zero-produit">
+    <h2>Oups, c'est vide par ici !</h2>
+    <p>Il semblerait que vous n'ayez pas encore échangé de messages privés avec un autre membre, n'hésitez pas à utiliser le bouton pour les contacter !</p>
+</div>
+<?php else: ?>
 <div id="conversations" class="container">
     <div id="conversation-box" class="row">
         <div id="conversation-list" class="col-lg-4 col-md-4 col-12 bg-primary text-white">
@@ -115,3 +121,4 @@
     setInterval(majMessages, 10000);
     messageList.scrollTop(messageList[0].scrollHeight); // Nécessaire pour le scroll au premier chargement de la page
 </script>
+<?php endif; ?>
