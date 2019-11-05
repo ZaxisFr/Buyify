@@ -15,8 +15,11 @@
             <a href=""><h6 class="card-subtitle text-muted text-right"><?=$vendeur??Utilisateur::getUtilisateurParId($produit->getVendeur())->getNom()?> <?=isset($vendeur)?'':Utilisateur::getUtilisateurParId($produit->getVendeur())->getPrenom()?></h6></a>
         </div>
         <div class="card-footer">
-            <a href="" class="btn-primary">Contacter</a>
+            <button class="btn-primary contacter" data-id="<?= $produit->getVendeur() ?>">Contacter</button>
             <p class="card-text text-right"><?=$prix??$produit->getPrix()?> €</p>
         </div>
     </div>
 </div>
+
+<?php
+include_once('../view/template/modaleContact.template.php');

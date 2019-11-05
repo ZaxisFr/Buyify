@@ -19467,6 +19467,12 @@ select {
   width: 100%;
 }
 
+#textarea-modale {
+  width: 100%;
+  min-height: 10em;
+  resize: none;
+}
+
 #error {
   display: flex;
   justify-content: center;
