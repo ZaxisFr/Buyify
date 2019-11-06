@@ -82,8 +82,17 @@
                                maxlength="6" size="7">
                     </div>
                     <input type="submit" class="btn btn-primary btn-block" value="Ajouter filtre" name="AjouterFiltre"/>
-                    <input type="reset" class="btn btn-primary btn-block" value="Reinisialiser" name="Reinisialiser"/>
+                    <input id="reset-filtre" type="reset" class="btn btn-primary btn-block" value="Réinitialiser" name="Reinisialiser"/>
                 </form>
+
+                <script type="text/javascript">
+                    $(function () {
+                        $("#reset-filtre").bind("click", function () {
+                            $("#categorie option[selected]").removeAttr('selected');
+                            $("#categorie option[value=Produits]").attr('selected', 'selected');
+                        });
+                    });
+                </script>
             </div>
         </div>
     </div>

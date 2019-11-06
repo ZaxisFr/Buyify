@@ -6,7 +6,7 @@ require_once ('_base.ctrl.php');
 
 session_start();
 if (Utilisateur::isConnecte()) {
-    header('Location: connexion.ctrl.php');
+    header('Location: /');
     exit(0);
 }
 
