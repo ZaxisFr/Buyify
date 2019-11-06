@@ -9,8 +9,3 @@ INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") V
 INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('8','Methode RAD','Live rapide application devlopement','5','img7.jpg','Livres','2');
 INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('9','Sous les vents de neptune','le live sous les vents de neptunes','10','img8.jpg','Livre','1');
 INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('10','Commode','Commode bois h:90 L:180 l:40','35','img9.jpg','Meubles','2');
-
-
-
-
-
