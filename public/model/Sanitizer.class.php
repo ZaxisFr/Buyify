@@ -2,7 +2,7 @@
 
 class Sanitizer {
     static function sanitizeString(string $variable) : string {
-        return htmlentities($variable, ENT_QUOTES | ENT_HTML5);
+        return htmlspecialchars($variable, ENT_QUOTES | ENT_HTML5);
     }
 
     static function sanitize($variable) {
