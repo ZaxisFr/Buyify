@@ -5,4 +5,3 @@
 .read ../../../src/sql/jeuProduit.sql
 .read ../../../src/sql/jeuFavorie.sql
 .read ../../../src/sql/jeuMessages.sql
-
