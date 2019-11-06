@@ -18,9 +18,13 @@
                 </a>
             </div>
             <div class="card-footer">
-                <a href="" class="btn-primary">Contacter</a>
+                <button class="btn-primary contacter" data-id="<?= $produit->getVendeur() ?>">Contacter</button>
                 <p class="card-text text-right"><?= $prix ?? $produit->getPrix() ?> €</p>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+include_once('../view/template/modaleContact.template.php');
+?>
