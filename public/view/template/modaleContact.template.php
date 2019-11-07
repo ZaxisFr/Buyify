@@ -8,7 +8,7 @@
         <?php if (Utilisateur::isConnecte()): ?>
             <textarea id="textarea-modale"></textarea>
         <?php else: ?>
-            <h5 class="modal-title">Vous ne pouvez pas envoyer de messages si vous n'êtes pas connécté</h5>
+            <h5 class="modal-title">Vous ne pouvez pas envoyer de messages si vous n'êtes pas connecté</h5>
         <?php endif; ?>
       </div>
       <div class="modal-footer">
