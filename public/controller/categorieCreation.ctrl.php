@@ -1,6 +1,7 @@
 <?php
 
 require_once ('../model/DAO.class.php');
+require_once ('../model/Categorie.class.php');
 require_once ('_base.ctrl.php');
 
 function getCategories() : array {
@@ -55,10 +56,21 @@ function supprimerCategorie(View $view, array $info) {
         ajoutErreur($view,"La catégorie Produit ne peut pas être supprimée");
         return;
     }
-    if (empty($db->select('Categorie', 'nom=:nom', ['nom' => $nomCat]))) {
-        ajoutErreur($view, "La catégorie parente $nomCat n'existe pas" );
+    if (empty($cat = $db->selectAsClass('Categorie', 'Categorie', 'nom=:nom', ['nom' => $nomCat]))) {
+        ajoutErreur($view, "La catégorie $nomCat n'existe pas" );
         return;
     }
+
+    $db->run("UPDATE Categorie SET parent=:parent WHERE parent=:old", [
+        'old' => $info['cat'],
+        'parent' => $cat[0]->getParent()
+    ]);
+
+    $db->run("UPDATE Produit SET categorie=:cat WHERE categorie=:old", [
+        'old' => $info['cat'],
+        'cat' => $cat[0]->getParent()
+    ]);
+
     $db->run("DELETE FROM Categorie WHERE nom=:nom", ['nom' => $nomCat]);
     header('Location: categorieCreation.ctrl.php?success=true');
     exit(0);
