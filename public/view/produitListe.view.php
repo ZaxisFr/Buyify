@@ -82,7 +82,7 @@
                                maxlength="6" size="7">
                     </div>
                     <input type="submit" class="btn btn-primary btn-block" value="Ajouter filtre" name="AjouterFiltre"/>
-                    <input id="reset-filtre" type="reset" class="btn btn-primary btn-block" value="Réinitialiser" name="Reinisialiser"/>
+                    <input id="reset-filtre" type="submit" class="btn btn-primary btn-block" value="Réinitialiser" name="Reinisialiser"/>
                 </form>
 
                 <script type="text/javascript">
