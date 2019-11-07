@@ -7,5 +7,5 @@ INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") V
 INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('6','Lit 140 x 190 ','Lit deux places','50','img5.jpg','Lits','3');
 INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('7','Peuples chasseurs de l artique','Le livre Peuples chasseurs de l artique','5','img6.jpg','Romans','2');
 INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('8','Methode RAD','Live rapide application devlopement','5','img7.jpg','Livres','2');
-INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('9','Sous les vents de neptune','le live sous les vents de neptunes','10','img8.jpg','Livre','1');
+INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('9','Sous les vents de neptune','le live sous les vents de neptunes','10','img8.jpg','Livres','1');
 INSERT INTO produit (id,intitule,description,prix,photo,categorie,"vendu-par") VALUES ('10','Commode','Commode bois h:90 L:180 l:40','35','img9.jpg','Meubles','2');
