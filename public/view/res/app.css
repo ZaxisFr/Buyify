@@ -19486,6 +19486,9 @@ select {
   width: 20%;
 }
 
+.carte-produit {
+  margin-top: 5%;
+}
 .carte-produit .card-header {
   align-items: center;
   display: flex;
@@ -29294,8 +29297,11 @@ h3 {
   margin-top: 0.2%;
 }
 
-#mainpage .card {
-  margin-top: 2%;
+article.fav-erreur {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
 }
 
 /*# sourceMappingURL=app.css.map */
