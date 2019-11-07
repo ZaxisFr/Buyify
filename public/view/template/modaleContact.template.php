@@ -5,11 +5,19 @@
         <h5 class="modal-title">Envoyer un message</h5>
       </div>
       <div class="modal-body">
-        <textarea id="textarea-modale"></textarea>
+        <?php if (Utilisateur::isConnecte()): ?>
+            <textarea id="textarea-modale"></textarea>
+        <?php else: ?>
+            <h5 class="modal-title">Vous ne pouvez pas envoyer de messages si vous n'êtes pas connécté</h5>
+        <?php endif; ?>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-        <button id="envoyer-message-modale" type="button" class="btn btn-primary">Envoyer</button>
+        <?php if (Utilisateur::isConnecte()): ?>
+            <button id="envoyer-message-modale" type="button" class="btn btn-primary">Envoyer</button>
+        <?php else: ?>
+            <a href="connexion.ctrl.php"><button class="btn btn-primary">Connexion</button></a>
+        <?php endif; ?>
       </div>
     </div>
   </div>
