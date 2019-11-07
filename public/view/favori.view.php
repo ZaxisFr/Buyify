@@ -11,8 +11,8 @@
     </div>
     <?php if(sizeof($this->param['produitsFavoris']) == 0): ?>
         <article class="fav-erreur">
-            <h3>Humm ça à l'air bien vide par ici...</h3>
-            <p>vous pouvez ajouter un produit en favori en cliant sur la petite étoile située en haut à doite d'un produit</p>
+            <h3>Humm ça a l'air bien vide par ici...</h3>
+            <p>Vous pouvez ajouter un produit en favori en cliquant sur la petite étoile située en haut à droite d'un produit</p>
         </article>
     <?php endif; ?>
     <script type="text/javascript" src="../view/scripts/multiLineElipsisText.js"></script>
