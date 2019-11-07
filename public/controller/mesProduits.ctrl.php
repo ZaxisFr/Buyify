@@ -5,6 +5,11 @@ require_once ("../model/DAO.class.php");
 
 session_start();
 
+if(!Utilisateur::isConnecte()){
+    header('Location: connexion.ctrl.php');
+    exit(0);
+}
+
 $mesProduits = DAO::getDb()->selectAsClass('Produit','Produit',"`vendu-par` = :utilisateur",['utilisateur'=>Utilisateur::getUtilisateurConnecte()->getId()]);
 
 require_once ("../../framework/View.class.php");
