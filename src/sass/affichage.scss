@@ -21,9 +21,9 @@
   margin-top: 0.2%;
 }
 
-#mainpage {
-  .card {
-    margin-top: 2%;
-  }
-
+article.fav-erreur {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
 }

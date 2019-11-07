@@ -19486,6 +19486,9 @@ select {
   width: 20%;
 }
 
+.carte-produit {
+  margin-top: 5%;
+}
 .carte-produit .card-header {
   align-items: center;
   display: flex;
@@ -29264,11 +29267,6 @@ h3 {
 .mes-produits .sep {
   border-bottom: 1px solid #ADB5BD;
   margin: 0;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
-}
-.mes-produits .card {
-  margin: 1em;
 }
 
 #zero-produit {
@@ -29294,8 +29292,11 @@ h3 {
   margin-top: 0.2%;
 }
 
-#mainpage .card {
-  margin-top: 2%;
+article.fav-erreur {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
 }
 
 /*# sourceMappingURL=app.css.map */

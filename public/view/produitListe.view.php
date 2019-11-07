@@ -16,7 +16,7 @@
     </div>
 
     <?php if ($nombreProduits > 0): ?>
-    <div class="card-deck">
+    <div class="row">
         <?php
         for ($i = $nbProd * ($numPage - 1); $i < $nbProd * $numPage; $i++) {
             if (isset($produits[$i])) {
