@@ -2,7 +2,7 @@
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
     <div class="card carte-produit">
         <div class="card-header">
-            <a href=""><h5 class="card-title text-multiline-elipsis"><?=$intitule??$produit->getIntitule()?></h5></a>
+            <a href="produit.ctrl.php?id=<?=$id??$produit->getId()?>"><h5 class="card-title text-multiline-elipsis"><?=$intitule??$produit->getIntitule()?></h5></a>
             <?php if(Utilisateur::isConnecte()):?>
                 <a href="toggleFavori.ctrl.php?id=<?=$id??$produit->getId()?>"><span class="<?= Utilisateur::getUtilisateurConnecte()->isFavori($id??$produit->getId())?'fas':'far'?> fa-star"></span></a>
             <?php endif;?>
