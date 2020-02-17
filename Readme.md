@@ -1,5 +1,5 @@
 # Buyify
-C'est un projet d'étude ou nous avons réaliser la base d'un site type Leboncoin.
+C'est un projet d'étude où nous avons réalisé la base d'un site type Leboncoin.
 
 ## Instalation 
 
