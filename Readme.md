@@ -1,4 +1,12 @@
 # Buyify
+C'est un projet d'étude ou nous avons réaliser la base d'un site type Leboncoin.
+
+## Instalation 
+
+Pour installer ce projet, le cloner et exécuter `npm install`
+Il peut s'avérer nécessaire d'exécuter `npm run build`
+
+# Buyify
 
 This repo is a school project where we have to make the base of a shop site.
 
